@@ -12,6 +12,7 @@ export function FormLol() {
   const h1Style = {
     textAling: "center",
     marginTop: "50px",
+    marginLeft: "50px",
   };
 
   return (
@@ -21,13 +22,13 @@ export function FormLol() {
         <form>
           <div className={"mb-3"}>
             <label hmtlFor="input-email" className={"form-label"}>
-              Email addres:
+              Your Name:
             </label>
             <input
-              type="email"
+              type="text"
               className={"form-control"}
-              id="input-email"
-              placeholder="name@example.com"
+              id="input-name"
+              placeholder="Lucas"
             />
           </div>
 
@@ -57,6 +58,7 @@ export function FormLol() {
               <option value="Build">Build</option>
               <option value="Matchs">Match</option>
               <option value="Lane-Fase">Lane Fase</option>
+              <option value="Lane-Fase">GamePlay</option>
             </select>
           </div>
 
@@ -77,7 +79,7 @@ export function FormLol() {
               Tip Title:
             </label>
             <input
-              type="email"
+              type="text"
               class="form-control"
               id="input-tip-title"
               placeholder="How to farm correctly with MF"
@@ -95,7 +97,7 @@ export function FormLol() {
             ></textarea>
           </div>
 
-          <Link type="button" class="btn btn-primary" to={"/"}>
+          <Link type="button" class="btn btn-primary" to={"/lol"}>
             Create
           </Link>
         </form>
