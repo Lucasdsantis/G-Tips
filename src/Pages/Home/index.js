@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import Carousel from "react-bootstrap/Carousel";
 
-export function Home() {
+export function Home(props) {
+  const {imgCsGoHP,imgLolHP, imgFifaHP} = props
+  
   const [index, setIndex] = useState(0);
 
   const handleSelect = (selectedIndex, e) => {
@@ -14,7 +16,7 @@ export function Home() {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="holder.js/800x400?text=First slide&bg=373940"
+            src= {imgCsGoHP}
             alt="First slide"
           />
           <Carousel.Caption>
@@ -25,8 +27,7 @@ export function Home() {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="holder.js/800x400?text=Second slide&bg=282c34"
-            alt="Second slide"
+            src={imgLolHP}
           />
 
           <Carousel.Caption>
@@ -37,7 +38,7 @@ export function Home() {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="holder.js/800x400?text=Third slide&bg=20232a"
+            src={imgFifaHP}
             alt="Third slide"
           />
 

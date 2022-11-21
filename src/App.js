@@ -1,3 +1,9 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import CsGoHP from "./Assets/Images/image CS home.png"
+import LolHP from "./Assets/Images/image LOL home 2.png"
+import FifaHP from "./Assets/Images/FIFA-23-logo.png"
+
 import { Routes, Route } from "react-router-dom";
 import { Home } from "./Pages/Home/index";
 
@@ -31,7 +37,7 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home imgCsGoHP={CsGoHP } imgLolHP={LolHP} imgFifaHP={FifaHP} />} />
 
         <Route path="/lol" element={<LolPage />} />
         <Route path="/lol-Form" element={<LolForm />} />
