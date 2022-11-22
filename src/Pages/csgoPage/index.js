@@ -2,29 +2,22 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-import CsGoimg1 from "../../Assets/img-csgo/imgCsGo1.jpeg";
-import CsGoimg2 from "../../Assets/img-csgo/imgCsGo2.jpeg";
-import CsGoimg3 from "../../Assets/img-csgo/imgCsGo3.jpeg";
-import CsGoimg4 from "../../Assets/img-csgo/imgCsGo4.jpeg";
-import CsGoimg5 from "../../Assets/img-csgo/imgCsGo5.jpeg";
-import CsGoimg6 from "../../Assets/img-csgo/imgCsGo6.jpeg";
-import CsGoimg7 from "../../Assets/img-csgo/imgCsGo7.jpeg";
+import Cache from "../../Assets/img-csgo/imgCache.jpeg";
+import Cobblestone from "../../Assets/img-csgo/imgCobblestone.jpeg";
+import DustII from "../../Assets/img-csgo/imgDustII.jpeg";
+import Inferno from "../../Assets/img-csgo/imgInferno.jpeg";
+import Mirage from "../../Assets/img-csgo/imgMirage.jpeg";
+import Nuke from "../../Assets/img-csgo/imgNuke.jpeg";
+import Overpass from "../../Assets/img-csgo/imgOverpass.jpeg";
+import Train from "../../Assets/img-csgo/imgTrain.jpeg";
+import Vertigo from "../../Assets/img-csgo/imgVertigo.jpeg";
+import Maps from "../../Assets/img-csgo/imgMaps.jpeg";
 
 export function CsGoPage() {
   const imgStyle = {
     width: "280px",
     height: "150px",
   };
-
-  const allImgs = [
-    CsGoimg1,
-    CsGoimg2,
-    CsGoimg3,
-    CsGoimg4,
-    CsGoimg5,
-    CsGoimg6,
-    CsGoimg7,
-  ];
 
   const [tip, setTip] = useState([]);
 
@@ -44,15 +37,26 @@ export function CsGoPage() {
 
   return (
     <>
-      <h1>CS:GO Page Page</h1>
+      <h1>CS:GO Page</h1>
 
       {tip.map((currentTip) => {
-        let randomIndex = Math.floor(Math.random() * (7 - 0) + 0);
+        let img;
+        if (currentTip.map === "Cache") img = Cache;
+        if (currentTip.map === "Cobblestone") img = Cobblestone;
+        if (currentTip.map === "DustII") img = DustII;
+        if (currentTip.map === "Inferno") img = Inferno;
+        if (currentTip.map === "Mirage") img = Mirage;
+        if (currentTip.map === "Nuke") img = Nuke;
+        if (currentTip.map === "Overpass") img = Overpass;
+        if (currentTip.map === "Train") img = Train;
+        if (currentTip.map === "Vertigo") img = Vertigo;
+        if (currentTip.map === "Maps") img = Maps;
+
         return (
           <div className={"card"} style={{ width: "18rem" }}>
             <img
               style={imgStyle}
-              src={allImgs[randomIndex]}
+              src={img}
               className={"card-img-top"}
               alt="csgo-random-img"
             />
