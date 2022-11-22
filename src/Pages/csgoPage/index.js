@@ -10,6 +10,7 @@ import CsGoimg5 from "../../Assets/img-csgo/imgCsGo5.jpeg";
 import CsGoimg6 from "../../Assets/img-csgo/imgCsGo6.jpeg";
 import CsGoimg7 from "../../Assets/img-csgo/imgCsGo7.jpeg";
 
+// img csgo
 export function CsGoPage() {
   const imgStyle = {
     width: "280px",
