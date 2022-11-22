@@ -3,6 +3,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Carousel from "react-bootstrap/Carousel";
 import Container from 'react-bootstrap/Container';
+import Button from 'react-bootstrap/Button';
+import { Link } from "react-router-dom";
 
 
 
@@ -43,6 +45,11 @@ export function Home(props){
     justifycontent: "center",
   }
   
+  const bStyle ={
+      width: "200px",
+      heigth: "50px",
+      fontSize: "1.3rem"
+  }
   
   
   
@@ -65,9 +72,9 @@ export function Home(props){
        
           {/* <Nav className="me-auto"> */}
           <div style={gamesDiv}>
-            <Nav.Link href="../csgoPage">Counter Strike Global Offensive</Nav.Link>
-            <Nav.Link href="../lolPage">League of Legends</Nav.Link>
-            <Nav.Link href="../fifaPage">FIFA</Nav.Link>
+            <Nav.Link href="../csgo">Counter Strike Global Offensive</Nav.Link>
+            <Nav.Link href="../lol">League of Legends</Nav.Link>
+            <Nav.Link href="../fifa">FIFA</Nav.Link>
             </div>
             <div>
             <a href="#about">About Us</a>
@@ -86,8 +93,8 @@ export function Home(props){
             alt="First slide"
           />
            <Carousel.Caption>
-            <h3>Counter Strike Global Offensive</h3>
-            
+           <Link to={"/csgo"}> <Button  style={bStyle} variant="info">Tips</Button>{' '}</Link>
+          <Button href={"https://store.steampowered.com/app/730/CounterStrike_Global_Offensive/"} style={bStyle} variant="info">Website</Button>{' '}
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -97,7 +104,8 @@ export function Home(props){
           />
 
           <Carousel.Caption>
-            <h3>League of Legends</h3>
+          <Link to={"/lol"}><Button style={bStyle}  variant="info">Tips</Button>{' '}</Link>
+          <Button href={"https://www.leagueoflegends.com/pt-br/"} style={bStyle} variant="info">Website</Button>{' '}
             
           </Carousel.Caption>
         </Carousel.Item>
@@ -109,7 +117,9 @@ export function Home(props){
           />
 
           <Carousel.Caption>
-            <h3>Fifa</h3>
+          <Link to={"/fifa"}><Button style={bStyle}  variant="info">Tips</Button>{' '}</Link>
+          <Button href={"https://www.ea.com/pt-br/games/fifa/fifa-23"} style={bStyle} variant="info">Website</Button>{' '}
+
            
           </Carousel.Caption>
         </Carousel.Item>
@@ -118,13 +128,19 @@ export function Home(props){
       
       <div style={body2}>
         <div>
-        <h3>INFOS</h3>
-        <p>Algum texto</p>
+        <h3>What it is?</h3>
+        <p>This website is a forum for tips for the most played games in the world
+
+</p>
         </div>
 
         <div>
         <h3>Why use it?</h3>
-        <p>algum texto</p>
+        <ul>
+          <li>Improve your Gameplay</li>
+          <li>Share your Gameplay tips</li>
+          <li>Interact with the gaming community</li>
+        </ul>
         </div>
       </div>
      
@@ -134,11 +150,11 @@ export function Home(props){
         <h2>About Us</h2>
         <div style={boxesfooter}>
         <div>
-          <h4>Joey Quadros</h4>
+          <h6>Joey Quadros</h6>
           <p>ljlkjkljkj</p>
         </div>
           <div>
-          <h4>Lucas de Santis</h4>
+          <h6>Lucas de Santis</h6>
           <p>ljlkjkljkj</p>
           </div>
           </div>
