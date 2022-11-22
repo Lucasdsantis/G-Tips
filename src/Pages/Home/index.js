@@ -85,9 +85,9 @@ export function Home(props){
             src= {imgCsGoHP}
             alt="First slide"
           />
-          <Carousel.Caption>
+           <Carousel.Caption>
             <h3>Counter Strike Global Offensive</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -98,7 +98,7 @@ export function Home(props){
 
           <Carousel.Caption>
             <h3>League of Legends</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -110,9 +110,7 @@ export function Home(props){
 
           <Carousel.Caption>
             <h3>Fifa</h3>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
+           
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>

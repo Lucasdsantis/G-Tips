@@ -1,8 +1,9 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Toaster } from "react-hot-toast"
 
-import CsGoHP from "./Assets/Images/image CS home.png";
+import CsGoHP from "./Assets/Images/fb_image.png";
 import LolHP from "./Assets/Images/image LOL home 2.png";
-import FifaHP from "./Assets/Images/FIFA-23-logo.png";
+import FifaHP from "./Assets/Images/fifa image 2 home page.png";
 
 import { Routes, Route } from "react-router-dom";
 import { Home } from "./Pages/Home/index";
@@ -22,6 +23,7 @@ import { ReadDFifa } from "./ReadD/ReadDFifa";
 function App() {
   return (
     <div className="App">
+    <Toaster/>
       <Routes>
         <Route
           path="/"
