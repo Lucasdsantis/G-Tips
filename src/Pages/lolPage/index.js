@@ -46,7 +46,7 @@ export function LolPage() {
 
   return (
     <>
-      <h1>CS:GO Page Page</h1>
+      <h1>League of Legends Page</h1>
 
       {tip.map((currentTip) => {
         let randomIndex = Math.floor(Math.random() * (7 - 0) + 0);
