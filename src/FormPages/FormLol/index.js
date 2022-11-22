@@ -38,8 +38,6 @@ export function FormLol() {
     setForm({ ...form, [e.target.name]: e.target.value });
   }
 
-  console.log(form);
-
   async function handleSubmit(e) {
     e.preventDefault();
 
@@ -59,7 +57,7 @@ export function FormLol() {
       <div style={divStyle}>
         <form onSubmit={handleSubmit}>
           <div className={"mb-3"}>
-            <label htmlFor="input-email" className={"form-label"}>
+            <label htmlFor="input-name" className={"form-label"}>
               Your Name:
             </label>
             <input
@@ -67,7 +65,7 @@ export function FormLol() {
               type="text"
               className={"form-control"}
               id="input-name"
-              placeholder="Lucas"
+              placeholder="Pedro"
               value={form.name}
               onChange={handleChange}
             />
@@ -112,6 +110,9 @@ export function FormLol() {
               <option value="Matchs">Match</option>
               <option value="Lane-Fase">Lane Fase</option>
               <option value="GamePlay">GamePlay</option>
+              <option value="GamePlay">GamePlay</option>
+              <option value="GamePlay">GamePlay</option>
+              <option value="Runas/Spel">Runas/Spell</option>
             </select>
           </div>
 
