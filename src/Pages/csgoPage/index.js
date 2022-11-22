@@ -1,4 +1,4 @@
-import { useEffect, useState, useParams } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
@@ -10,7 +10,6 @@ import CsGoimg5 from "../../Assets/img-csgo/imgCsGo5.jpeg";
 import CsGoimg6 from "../../Assets/img-csgo/imgCsGo6.jpeg";
 import CsGoimg7 from "../../Assets/img-csgo/imgCsGo7.jpeg";
 
-// img csgo
 export function CsGoPage() {
   const imgStyle = {
     width: "280px",
@@ -26,9 +25,6 @@ export function CsGoPage() {
     CsGoimg6,
     CsGoimg7,
   ];
-
-  let randomIndex = Math.floor(Math.random() * (7 - 1) + 1);
-  const imgCsGo = allImgs[randomIndex];
 
   const [tip, setTip] = useState([]);
 
@@ -51,21 +47,25 @@ export function CsGoPage() {
       <h1>CS:GO Page Page</h1>
 
       {tip.map((currentTip) => {
+        let randomIndex = Math.floor(Math.random() * (7 - 0) + 0);
         return (
           <div className={"card"} style={{ width: "18rem" }}>
             <img
               style={imgStyle}
-              src={imgCsGo}
+              src={allImgs[randomIndex]}
               className={"card-img-top"}
               alt="csgo-random-img"
             />
             <div className={"card-body"}>
               <h5 className={"card-title"}>{currentTip.title}</h5>
-              <h5 className={"card-title"}>{currentTip.map}</h5>
+              <h6 className={"card-title"}>{currentTip.map}</h6>
               <h6 className={"card-title"}>{currentTip.type}</h6>
               <h6 className={"card-title"}>{currentTip.team}</h6>
               <div>
-                <Link to={`/csgo-ReadD/}`} className={"btn btn-primary"}>
+                <Link
+                  to={`/csgo-ReadD/${currentTip._id}}`}
+                  className={"btn btn-primary"}
+                >
                   Read
                 </Link>
               </div>
