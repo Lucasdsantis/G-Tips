@@ -21,7 +21,7 @@ export function FormCsGo() {
     name: "",
     team: "Team",
     type: "Type",
-    map: "Maps",
+    map: "Map",
     title: "",
     tipBody: "",
   });
@@ -37,7 +37,7 @@ export function FormCsGo() {
       return;
     }
 
-    if (e.target.name === "Maps") {
+    if (e.target.name === "Map") {
       setForm({ ...form, map: e.target.value });
       return;
     }
@@ -124,10 +124,10 @@ export function FormCsGo() {
               defaultValue={form.map}
               onChange={handleChange}
             >
-              <option value="Maps">Maps</option>
+              <option value="Map">Map</option>
               <option value="Cache">Cache</option>
               <option value="Cobblestone">Cobblestone</option>
-              <option value="Dust-II">Dust II</option>
+              <option value="DustII">Dust II</option>
               <option value="Inferno">Inferno</option>
               <option value="Mirage">Mirage</option>
               <option value="Nuke">Nuke</option>
