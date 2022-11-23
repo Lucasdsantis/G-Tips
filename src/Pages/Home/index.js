@@ -54,7 +54,7 @@ export function Home(props) {
 
   return (
     <>
-      <Navbar bg="transparent" expand="lg">
+      <Navbar bg="light" expand="lg">
         <Container className="div-geral-navbar" style={divGeralNavbar}>
           <div>
             <Navbar.Brand href="#home">G-Tips</Navbar.Brand>
