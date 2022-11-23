@@ -9,12 +9,10 @@ import { Link } from "react-router-dom";
 export function Home(props) {
   const { imgCsGoHP, imgLolHP, imgFifaHP } = props;
 
-
   const nbstyle = {
     background: "none",
     margin: "20px",
   };
-
 
   const divGeralNavbar = {
     width: "100vw",
@@ -42,12 +40,17 @@ export function Home(props) {
     style: "none",
   };
 
+  const imgcarousel = {
+    objectFit: "cover",
+    width: "100vw",
+    heigth: "30vh",
+  };
+
   const carouselstyle = {
     width: "100vw",
-    heigth: "500px ",
+    heigth: "auto",
 
     top: "0",
-
   };
 
   const gamesDiv = {
@@ -67,7 +70,6 @@ export function Home(props) {
     backgroundColor: "grey",
     alignItems: "center",
     color: "white",
-
   };
 
   const boxesfooter = {
@@ -111,19 +113,16 @@ export function Home(props) {
 
   return (
     <>
-
       <Navbar style={nbstyle} bg="light" expand="lg">
         <Container className="div-geral-navbar" style={divGeralNavbar}>
           <div style={gtipshome}>
             <Navbar.Brand href="#home">G-TIPS</Navbar.Brand>
-
           </div>
           {/* <Navbar.Toggle aria-controls="basic-navbar-nav" /> */}
           {/* <Navbar.Collapse id="basic-navbar-nav"> */}
 
           {/* <Nav className="me-auto"> */}
           <div style={gamesDiv}>
-
             <Nav.Link style={nlstyle} href="../csgo">
               Counter Strike Global Offensive
             </Nav.Link>
@@ -142,14 +141,18 @@ export function Home(props) {
         </Container>
       </Navbar>
 
-
       <Carousel
         activeIndex={index}
         onSelect={handleSelect}
         style={carouselstyle}
       >
         <Carousel.Item>
-          <img className="d-block w-100" src={imgCsGoHP} alt="First slide" />
+          <img
+            className="d-block w-100"
+            style={imgcarousel}
+            src={imgCsGoHP}
+            alt="First slide"
+          />
           <Carousel.Caption>
             <Link to={"/csgo"}>
               {" "}
@@ -164,12 +167,12 @@ export function Home(props) {
               style={bStyle}
               variant="info"
             >
-              Website
+              Play Now
             </Button>{" "}
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
-          <img className="d-block w-100" src={imgLolHP} />
+          <img className="d-block w-100" style={imgcarousel} src={imgLolHP} />
 
           <Carousel.Caption>
             <Link to={"/lol"}>
@@ -182,12 +185,17 @@ export function Home(props) {
               style={bStyle}
               variant="info"
             >
-              Website
+              Play Now
             </Button>{" "}
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
-          <img className="d-block w-100" src={imgFifaHP} alt="Third slide" />
+          <img
+            className="d-block w-100"
+            style={imgcarousel}
+            src={imgFifaHP}
+            alt="Third slide"
+          />
 
           <Carousel.Caption>
             <Link to={"/fifa"}>
@@ -200,16 +208,14 @@ export function Home(props) {
               style={bStyle}
               variant="info"
             >
-              Website
+              Play Now
             </Button>{" "}
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
 
       <div style={body2}>
-
         <div style={body2boxes}>
-
           <h3>What it is?</h3>
           <p>
             This website is a forum for tips for the most played games in the
@@ -217,9 +223,7 @@ export function Home(props) {
           </p>
         </div>
 
-
         <div style={body2boxes}>
-
           <h3>Why use it?</h3>
           <ul>
             <li>Improve your Gameplay</li>
@@ -231,7 +235,6 @@ export function Home(props) {
 
       <footer style={fstyle}>
         <div>
-
           <h4 id="abtus" style={abtfooter}>
             About Us
           </h4>
