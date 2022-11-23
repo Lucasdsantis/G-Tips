@@ -46,9 +46,18 @@ export function ReadDCsgo() {
     borderRadius: "10px",
   };
 
+  const divCommentsE = {
+    marginTop: "1rem",
+    backgroundColor: "#4F4F4F",
+    border: "solid 1px black",
+    padding: "0.5rem",
+    borderRadius: "10px",
+  };
+
   const divDosBotoes = {
     display: "flex",
     justifyContent: "space-between",
+    flexWrap: "wrap",
   };
 
   const divButton = {
@@ -72,10 +81,11 @@ export function ReadDCsgo() {
   };
 
   const imgStyle = {
-    width: "185px",
-    height: "100px",
-    marginLeft: "0.6rem",
-    marginTop: "0.2rem",
+    // width: "185px",
+    // height: "100px",
+    objectfFit: "cover",
+    // marginLeft: "0.6rem",
+    // marginTop: "0.2rem",
   };
 
   // LOGICA DO READ DETAILS
@@ -228,7 +238,7 @@ export function ReadDCsgo() {
             <div style={divDosBotoes}>
               <div style={divButtonLikeAndDislike}>
                 <button
-                  style={{ marginRight: "1rem" }}
+                  style={{ marginRight: "0.5rem" }}
                   type="button"
                   className="btn btn-outline-success"
                   onClick={incrementLike}
@@ -245,7 +255,7 @@ export function ReadDCsgo() {
               </div>
               <div style={divButton}>
                 <Link
-                  style={{ marginRight: "1rem" }}
+                  style={{ marginRight: "0.5rem" }}
                   to={`/csgo-Edit/${params.id}`}
                 >
                   <button type="button" className="btn btn-secondary">
@@ -307,7 +317,7 @@ export function ReadDCsgo() {
                 </div>
               </form>
             </div>
-            <div>
+            <div style={divCommentsE}>
               <h4 style={{ marginBottom: "0.7rem" }}>Comments</h4>
 
               {comment.map((currentcomment) => {
@@ -316,6 +326,7 @@ export function ReadDCsgo() {
                     <div
                       className="card border-dark mb-3"
                       style={{ maxWidth: "18rem" }}
+                      key={currentcomment._id}
                     >
                       {/* comentario exibicao */}
                       <div className="card-header">
@@ -367,7 +378,12 @@ export function ReadDCsgo() {
               return (
                 <div
                   className={"card"}
-                  style={{ width: "13rem", margin: "2rem" }}
+                  style={{
+                    width: "13rem",
+                    margin: "2rem",
+                    border: "solid 1px black",
+                  }}
+                  key={currentTip._id}
                 >
                   <img
                     style={imgStyle}

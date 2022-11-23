@@ -13,10 +13,41 @@ import Train from "../../Assets/img-csgo/imgTrain.jpeg";
 import Vertigo from "../../Assets/img-csgo/imgVertigo.jpeg";
 import Maps from "../../Assets/img-csgo/imgMaps.jpeg";
 
+import backgroundimg5 from "../../Assets/Backgroung-img/background_csgo_img5.jpeg";
+
 export function CsGoPage() {
+  const divBackgorund = {
+    backgroundImage: `url(${backgroundimg5})`,
+    height: "100vh",
+    padding: "5rem",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+  };
+
+  const divMae = {
+    margin: "50px",
+    backgroundColor: "#808080",
+    padding: "1.5rem",
+    border: "solid 1px black",
+    borderRadius: "10px",
+  };
+
+  const divTitle = {
+    textAlign: "center",
+    marginBottom: "1.5rem",
+  };
+
+  const divTips = {
+    display: "flex",
+    flexFlow: "row wrap",
+    gap: "2.5rem",
+  };
+
   const imgStyle = {
     width: "280px",
     height: "150px",
+    marginLeft: "0.2rem",
+    marginTop: "0.2rem",
   };
 
   const [tip, setTip] = useState([]);
@@ -36,47 +67,57 @@ export function CsGoPage() {
   }, []);
 
   return (
-    <>
-      <h1>CS:GO Page</h1>
+    <div style={divBackgorund}>
+      <div style={divMae}>
+        <div style={divTitle}>
+          <h1>CS:GO Page</h1>
+        </div>
 
-      {tip.map((currentTip) => {
-        let img;
-        if (currentTip.map === "Cache") img = Cache;
-        if (currentTip.map === "Cobblestone") img = Cobblestone;
-        if (currentTip.map === "DustII") img = DustII;
-        if (currentTip.map === "Inferno") img = Inferno;
-        if (currentTip.map === "Mirage") img = Mirage;
-        if (currentTip.map === "Nuke") img = Nuke;
-        if (currentTip.map === "Overpass") img = Overpass;
-        if (currentTip.map === "Train") img = Train;
-        if (currentTip.map === "Vertigo") img = Vertigo;
-        if (currentTip.map === "Maps") img = Maps;
+        <div style={divTips}>
+          {tip.map((currentTip) => {
+            let img;
+            if (currentTip.map === "Cache") img = Cache;
+            if (currentTip.map === "Cobblestone") img = Cobblestone;
+            if (currentTip.map === "DustII") img = DustII;
+            if (currentTip.map === "Inferno") img = Inferno;
+            if (currentTip.map === "Mirage") img = Mirage;
+            if (currentTip.map === "Nuke") img = Nuke;
+            if (currentTip.map === "Overpass") img = Overpass;
+            if (currentTip.map === "Train") img = Train;
+            if (currentTip.map === "Vertigo") img = Vertigo;
+            if (currentTip.map === "Maps") img = Maps;
 
-        return (
-          <div className={"card"} style={{ width: "18rem" }}>
-            <img
-              style={imgStyle}
-              src={img}
-              className={"card-img-top"}
-              alt="csgo-random-img"
-            />
-            <div className={"card-body"}>
-              <h5 className={"card-title"}>{currentTip.title}</h5>
-              <h6 className={"card-title"}>{currentTip.map}</h6>
-              <h6 className={"card-title"}>{currentTip.type}</h6>
-              <h6 className={"card-title"}>{currentTip.team}</h6>
-              <div>
-                <Link
-                  to={`/csgo-ReadD/${currentTip._id}`}
-                  className={"btn btn-primary"}
-                >
-                  Read
-                </Link>
+            return (
+              <div
+                className={"card"}
+                style={{ width: "18rem" }}
+                key={currentTip._id}
+              >
+                <img
+                  style={imgStyle}
+                  src={img}
+                  className={"card-img-top"}
+                  alt="csgo-random-img"
+                />
+                <div className={"card-body"}>
+                  <h5 className={"card-title"}>{currentTip.title}</h5>
+                  <h6 className={"card-title"}>{currentTip.map}</h6>
+                  <h6 className={"card-title"}>{currentTip.type}</h6>
+                  <h6 className={"card-title"}>{currentTip.team}</h6>
+                  <div>
+                    <Link
+                      to={`/csgo-ReadD/${currentTip._id}`}
+                      className={"btn btn-primary"}
+                    >
+                      Read
+                    </Link>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        );
-      })}
-    </>
+            );
+          })}
+        </div>
+      </div>
+    </div>
   );
 }

@@ -17,7 +17,14 @@ export function CsgoEdit() {
   const params = useParams();
   const navigate = useNavigate();
 
-  const [tip, setTip] = useState({});
+  const [tip, setTip] = useState({
+    name: "",
+    team: "",
+    type: "",
+    map: "",
+    title: "",
+    tipBody: "",
+  });
 
   useEffect(() => {
     async function FetchTip() {
@@ -60,14 +67,19 @@ export function CsgoEdit() {
     console.log(infosToSendForAPI);
 
     try {
-      await axios.put("https://ironrest.cyclic.app/Cs_Tips", infosToSendForAPI);
+      await axios.put(
+        `https://ironrest.cyclic.app/Cs_Tips/${params.id}`,
+        infosToSendForAPI
+      );
 
-      navigate(`http://localhost:3000/csgo-ReadD/${params.id}`);
+      navigate(`/csgo-ReadD/${params.id}`);
     } catch (err) {
       console.log(err);
       toast.error("Ops! Algo deu errado ...");
     }
   }
+
+  console.log(tip);
 
   return (
     <>
