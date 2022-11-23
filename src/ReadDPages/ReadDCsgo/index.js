@@ -14,13 +14,27 @@ import Train from "../../Assets/img-csgo/imgTrain.jpeg";
 import Vertigo from "../../Assets/img-csgo/imgVertigo.jpeg";
 import Maps from "../../Assets/img-csgo/imgMaps.jpeg";
 
+import backgroundimg5 from "../../Assets/Backgroung-img/background_csgo_img5.jpeg";
+
 export function ReadDCsgo() {
+  const divBackgorund = {
+    backgroundImage: `url(${backgroundimg5})`,
+    height: "100vh",
+    padding: "4.5rem",
+    // backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  };
+
   const divMae = {
     display: "flex",
-    justifyContent: "row",
-    margin: "3rem",
-    marginTop: "5rem",
+    alignItems: "flexStart",
+    // margin: "3rem",
+    // marginTop: "5rem",
     gap: "2rem",
+    marginTop: "16rem",
   };
 
   const divTip = {
@@ -29,6 +43,10 @@ export function ReadDCsgo() {
     width: "70%",
     border: "solid 1px black",
     borderRadius: "10px",
+    display: "flex",
+    alignItems: "flexStart",
+    flexFlow: "column wrap",
+    flexWrap: "wrap",
   };
 
   const divReadMore = {
@@ -52,6 +70,13 @@ export function ReadDCsgo() {
     border: "solid 1px black",
     padding: "0.5rem",
     borderRadius: "10px",
+    flexWrap: "wrap",
+  };
+
+  const divCardComment = {
+    display: "flex",
+    justifyContent: "flex-start",
+    flexWrap: "wrap",
   };
 
   const divDosBotoes = {
@@ -81,11 +106,7 @@ export function ReadDCsgo() {
   };
 
   const imgStyle = {
-    // width: "185px",
-    // height: "100px",
     objectfFit: "cover",
-    // marginLeft: "0.6rem",
-    // marginTop: "0.2rem",
   };
 
   // LOGICA DO READ DETAILS
@@ -217,7 +238,7 @@ export function ReadDCsgo() {
   };
 
   return (
-    <>
+    <div style={divBackgorund}>
       {/* DIV MAE */}
       <div style={divMae}>
         {/* QUADRADO 1 */}
@@ -319,40 +340,41 @@ export function ReadDCsgo() {
             </div>
             <div style={divCommentsE}>
               <h4 style={{ marginBottom: "0.7rem" }}>Comments</h4>
-
-              {comment.map((currentcomment) => {
-                if (currentcomment.tipid === params.id) {
-                  return (
-                    <div
-                      className="card border-dark mb-3"
-                      style={{ maxWidth: "18rem" }}
-                      key={currentcomment._id}
-                    >
-                      {/* comentario exibicao */}
-                      <div className="card-header">
-                        <strong>{currentcomment.autor.toUpperCase()}</strong>
+              <div style={divCardComment}>
+                {comment.map((currentcomment) => {
+                  if (currentcomment.tipid === params.id) {
+                    return (
+                      <div
+                        className="card border-dark mb-3"
+                        style={{ Width: "8rem", margin: "0.3rem" }}
+                        key={currentcomment._id}
+                      >
+                        {/* comentario exibicao */}
+                        <div className="card-header">
+                          <strong>{currentcomment.autor.toUpperCase()}</strong>
+                        </div>
+                        <div className="card-body text-dark">
+                          <blockquote className="card-text">
+                            <p>{currentcomment.comment}</p>
+                            <div style={divButton2}>
+                              <button
+                                type="button"
+                                className="btn btn-danger"
+                                onClick={() => {
+                                  handleDeleteComment(currentcomment._id);
+                                }}
+                              >
+                                Delete
+                              </button>
+                            </div>
+                          </blockquote>
+                        </div>
                       </div>
-                      <div className="card-body text-dark">
-                        <blockquote className="card-text">
-                          <p>{currentcomment.comment}</p>
-                          <div style={divButton2}>
-                            <button
-                              type="button"
-                              className="btn btn-danger"
-                              onClick={() => {
-                                handleDeleteComment(currentcomment._id);
-                              }}
-                            >
-                              Delete
-                            </button>
-                          </div>
-                        </blockquote>
-                      </div>
-                    </div>
-                  );
-                }
-                return;
-              })}
+                    );
+                  }
+                  return;
+                })}
+              </div>
             </div>
           </div>
         </div>
@@ -416,6 +438,6 @@ export function ReadDCsgo() {
           })}
         </div>
       </div>
-    </>
+    </div>
   );
 }
