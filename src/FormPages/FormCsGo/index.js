@@ -6,14 +6,13 @@ import { useNavigate } from "react-router-dom";
 export function FormCsGo() {
   const divStyle = {
     margin: "50px",
-    backgroundColor: "grey",
+    backgroundColor: "#808080",
+    padding: "1.5rem",
+    border: "solid 1px black",
+    borderRadius: "10px",
   };
 
-  const h1Style = {
-    textAling: "center",
-    marginTop: "50px",
-    marginLeft: "50px",
-  };
+  const h1Style = {};
 
   const navigate = useNavigate();
 
@@ -60,8 +59,8 @@ export function FormCsGo() {
 
   return (
     <>
-      <h1 style={h1Style}> Create CS:GO Tip</h1>
       <div style={divStyle}>
+        <h1 style={h1Style}> Create CS:GO Tip</h1>
         <form onSubmit={handleSubmit}>
           <div className={"mb-3"}>
             <label htmlFor="input-name" className={"form-label"}>
