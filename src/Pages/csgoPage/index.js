@@ -19,15 +19,14 @@ export function CsGoPage() {
   const divBackgorund = {
     backgroundImage: `url(${backgroundimg5})`,
     height: "100vh",
-    padding: "5rem",
-    backgroundRepeat: "no-repeat",
+    padding: "4.5rem",
+    // backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
   };
 
   const divMae = {
-    margin: "50px",
     backgroundColor: "#808080",
-    padding: "1.5rem",
+    padding: "1.3rem",
     border: "solid 1px black",
     borderRadius: "10px",
   };
@@ -41,13 +40,17 @@ export function CsGoPage() {
     display: "flex",
     flexFlow: "row wrap",
     gap: "2.5rem",
+    marginBottom: "1.5rem",
   };
 
   const imgStyle = {
-    width: "280px",
-    height: "150px",
-    marginLeft: "0.2rem",
-    marginTop: "0.2rem",
+    objectfFit: "cover",
+  };
+
+  const divCreate = {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   };
 
   const [tip, setTip] = useState([]);
@@ -70,10 +73,40 @@ export function CsGoPage() {
     <div style={divBackgorund}>
       <div style={divMae}>
         <div style={divTitle}>
-          <h1>CS:GO Page</h1>
+          <h1>Tips CS:GO</h1>
         </div>
 
         <div style={divTips}>
+          <div
+            className={"card"}
+            style={{ width: "18rem", border: "1px solid green" }}
+          >
+            <img
+              style={imgStyle}
+              src={Maps}
+              className={"card-img-top"}
+              alt="csgo-random-img"
+            />
+            <div className={"card-body"} style={divCreate}>
+              <h4 className={"card-title"}> Create New Tip</h4>
+              <div>
+                <Link
+                  to={`/FormCsGo`}
+                  className={"btn btn-success"}
+                  style={{
+                    marginTop: "1.3rem",
+                    borderRadius: "2rem",
+                    height: "4rem",
+                    width: "4rem",
+                    fontSize: "2rem",
+                    textAlign: "center",
+                  }}
+                >
+                  +
+                </Link>
+              </div>
+            </div>
+          </div>
           {tip.map((currentTip) => {
             let img;
             if (currentTip.map === "Cache") img = Cache;
@@ -90,7 +123,7 @@ export function CsGoPage() {
             return (
               <div
                 className={"card"}
-                style={{ width: "18rem" }}
+                style={{ width: "18rem", border: "1px solid black" }}
                 key={currentTip._id}
               >
                 <img

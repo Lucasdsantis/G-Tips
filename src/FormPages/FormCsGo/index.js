@@ -3,7 +3,17 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
+import backgroundimg5 from "../../Assets/Backgroung-img/background_csgo_img5.jpeg";
+
 export function FormCsGo() {
+  const divBackgorund = {
+    backgroundImage: `url(${backgroundimg5})`,
+    height: "100vh",
+    padding: "4.5rem",
+    // backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+  };
+
   const divStyle = {
     margin: "50px",
     backgroundColor: "#808080",
@@ -58,7 +68,7 @@ export function FormCsGo() {
   }
 
   return (
-    <>
+    <div style={divBackgorund}>
       <div style={divStyle}>
         <h1 style={h1Style}> Create CS:GO Tip</h1>
         <form onSubmit={handleSubmit}>
@@ -170,6 +180,6 @@ export function FormCsGo() {
           </button>
         </form>
       </div>
-    </>
+    </div>
   );
 }

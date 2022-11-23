@@ -3,7 +3,16 @@ import axios from "axios";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
+import backgroundimg5 from "../../Assets/Backgroung-img/background_csgo_img5.jpeg";
+
 export function CsgoEdit() {
+  const divBackgorund = {
+    backgroundImage: `url(${backgroundimg5})`,
+    height: "100vh",
+    padding: "4.5rem",
+    backgroundRepeat: "no-repeat",
+  };
+
   const divStyle = {
     margin: "50px",
     backgroundColor: "#808080",
@@ -79,10 +88,8 @@ export function CsgoEdit() {
     }
   }
 
-  console.log(tip);
-
   return (
-    <>
+    <div style={divBackgorund}>
       <div style={divStyle}>
         <h1 style={h1Style}> Edit CS:GO Tip</h1>
         <form onSubmit={handleSubmit}>
@@ -196,6 +203,6 @@ export function CsgoEdit() {
           </div>
         </form>
       </div>
-    </>
+    </div>
   );
 }
