@@ -54,7 +54,7 @@ export function FormCsGo() {
       navigate("/csgo");
     } catch (err) {
       console.log(err);
-      toast.error("Ops! Algo deu errado ...");
+      toast.error("Oops! Something went worng...");
     }
   }
 
