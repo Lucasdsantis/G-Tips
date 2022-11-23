@@ -9,13 +9,45 @@ import { Link } from "react-router-dom";
 export function Home(props) {
   const { imgCsGoHP, imgLolHP, imgFifaHP } = props;
 
+
+  const nbstyle = {
+    background: "none",
+    margin: "20px",
+  };
+
+
   const divGeralNavbar = {
-    margin: "0",
     width: "100vw",
     display: "flex",
     flexDirection: "row",
     justifycontent: "space-between",
     maxWidth: "100vw",
+
+    position: "absolute",
+    zIndex: "999",
+  };
+
+  const gtipshome = {
+    marginLeft: "20px",
+    color: "white",
+  };
+
+  const nlstyle = {
+    marginRight: "50px",
+    marginLeft: "50px",
+  };
+
+  const aboutusnav = {
+    marginRight: "20px",
+    style: "none",
+  };
+
+  const carouselstyle = {
+    width: "100vw",
+    heigth: "500px ",
+
+    top: "0",
+
   };
 
   const gamesDiv = {
@@ -26,24 +58,49 @@ export function Home(props) {
   const body2 = {
     display: "flex",
     flexDirection: "row",
-    justifycontent: "space-between",
+
+    justifyContent: "center",
+    backgroundColor: "#dfdbdb",
   };
 
   const fstyle = {
     backgroundColor: "grey",
+    alignItems: "center",
+    color: "white",
+
   };
 
   const boxesfooter = {
     aligntext: "center",
     display: "flex",
     flexDirection: "row",
-    justifycontent: "center",
+    justifyContent: "center",
   };
 
   const bStyle = {
     width: "200px",
     heigth: "50px",
     fontSize: "1.3rem",
+    boderRadius: "40px",
+    marginLeft: "20px",
+    marginRight: "20px",
+  };
+
+  const body2boxes = {
+    margin: "50px",
+  };
+
+  const footerboxes = {
+    marginLeft: "200px",
+    marginRight: "200px",
+  };
+
+  const abtfooter = {
+    textAlign: "center",
+    marginBottom: "20px",
+  };
+  const pfooter = {
+    fontSize: "0.7rem",
   };
 
   const [index, setIndex] = useState(0);
@@ -54,29 +111,43 @@ export function Home(props) {
 
   return (
     <>
-      <Navbar bg="light" expand="lg">
+
+      <Navbar style={nbstyle} bg="light" expand="lg">
         <Container className="div-geral-navbar" style={divGeralNavbar}>
-          <div>
-            <Navbar.Brand href="#home">G-Tips</Navbar.Brand>
+          <div style={gtipshome}>
+            <Navbar.Brand href="#home">G-TIPS</Navbar.Brand>
+
           </div>
           {/* <Navbar.Toggle aria-controls="basic-navbar-nav" /> */}
           {/* <Navbar.Collapse id="basic-navbar-nav"> */}
 
           {/* <Nav className="me-auto"> */}
           <div style={gamesDiv}>
-            <Nav.Link href="../csgo">Counter Strike Global Offensive</Nav.Link>
-            <Nav.Link href="../lol">League of Legends</Nav.Link>
-            <Nav.Link href="../fifa">FIFA</Nav.Link>
+
+            <Nav.Link style={nlstyle} href="../csgo">
+              Counter Strike Global Offensive
+            </Nav.Link>
+            <Nav.Link style={nlstyle} href="../lol">
+              League of Legends
+            </Nav.Link>
+            <Nav.Link style={nlstyle} href="../fifa">
+              FIFA
+            </Nav.Link>
           </div>
-          <div>
-            <a href="#about">About Us</a>
+          <div style={aboutusnav}>
+            <a href="#abtus">About Us</a>
           </div>
           {/* </Nav> */}
           {/* </Navbar.Collapse> */}
         </Container>
       </Navbar>
 
-      <Carousel activeIndex={index} onSelect={handleSelect}>
+
+      <Carousel
+        activeIndex={index}
+        onSelect={handleSelect}
+        style={carouselstyle}
+      >
         <Carousel.Item>
           <img className="d-block w-100" src={imgCsGoHP} alt="First slide" />
           <Carousel.Caption>
@@ -136,7 +207,9 @@ export function Home(props) {
       </Carousel>
 
       <div style={body2}>
-        <div>
+
+        <div style={body2boxes}>
+
           <h3>What it is?</h3>
           <p>
             This website is a forum for tips for the most played games in the
@@ -144,7 +217,9 @@ export function Home(props) {
           </p>
         </div>
 
-        <div>
+
+        <div style={body2boxes}>
+
           <h3>Why use it?</h3>
           <ul>
             <li>Improve your Gameplay</li>
@@ -156,15 +231,18 @@ export function Home(props) {
 
       <footer style={fstyle}>
         <div>
-          <h2>About Us</h2>
+
+          <h4 id="abtus" style={abtfooter}>
+            About Us
+          </h4>
           <div style={boxesfooter}>
-            <div>
+            <div style={footerboxes}>
               <h6>Joey Quadros</h6>
-              <p>ljlkjkljkj</p>
+              <p style={pfooter}>IronHack Web Develoment student</p>
             </div>
-            <div>
+            <div style={footerboxes}>
               <h6>Lucas de Santis</h6>
-              <p>ljlkjkljkj</p>
+              <p style={pfooter}>IronHack Web Develoment student</p>
             </div>
           </div>
         </div>
