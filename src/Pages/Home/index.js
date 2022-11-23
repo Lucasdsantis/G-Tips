@@ -9,10 +9,12 @@ import { Link } from "react-router-dom";
 export function Home(props) {
   const { imgCsGoHP, imgLolHP, imgFifaHP } = props;
 
+
   const nbstyle = {
     background: "none",
     margin: "20px",
   };
+
 
   const divGeralNavbar = {
     width: "100vw",
@@ -20,6 +22,7 @@ export function Home(props) {
     flexDirection: "row",
     justifycontent: "space-between",
     maxWidth: "100vw",
+
     position: "absolute",
     zIndex: "999",
   };
@@ -44,6 +47,7 @@ export function Home(props) {
     heigth: "500px ",
 
     top: "0",
+
   };
 
   const gamesDiv = {
@@ -54,6 +58,7 @@ export function Home(props) {
   const body2 = {
     display: "flex",
     flexDirection: "row",
+
     justifyContent: "center",
     backgroundColor: "#dfdbdb",
   };
@@ -62,6 +67,7 @@ export function Home(props) {
     backgroundColor: "grey",
     alignItems: "center",
     color: "white",
+
   };
 
   const boxesfooter = {
@@ -105,16 +111,19 @@ export function Home(props) {
 
   return (
     <>
+
       <Navbar style={nbstyle} bg="light" expand="lg">
         <Container className="div-geral-navbar" style={divGeralNavbar}>
           <div style={gtipshome}>
             <Navbar.Brand href="#home">G-TIPS</Navbar.Brand>
+
           </div>
           {/* <Navbar.Toggle aria-controls="basic-navbar-nav" /> */}
           {/* <Navbar.Collapse id="basic-navbar-nav"> */}
 
           {/* <Nav className="me-auto"> */}
           <div style={gamesDiv}>
+
             <Nav.Link style={nlstyle} href="../csgo">
               Counter Strike Global Offensive
             </Nav.Link>
@@ -132,6 +141,7 @@ export function Home(props) {
           {/* </Navbar.Collapse> */}
         </Container>
       </Navbar>
+
 
       <Carousel
         activeIndex={index}
@@ -197,7 +207,9 @@ export function Home(props) {
       </Carousel>
 
       <div style={body2}>
+
         <div style={body2boxes}>
+
           <h3>What it is?</h3>
           <p>
             This website is a forum for tips for the most played games in the
@@ -205,7 +217,9 @@ export function Home(props) {
           </p>
         </div>
 
+
         <div style={body2boxes}>
+
           <h3>Why use it?</h3>
           <ul>
             <li>Improve your Gameplay</li>
@@ -217,6 +231,7 @@ export function Home(props) {
 
       <footer style={fstyle}>
         <div>
+
           <h4 id="abtus" style={abtfooter}>
             About Us
           </h4>

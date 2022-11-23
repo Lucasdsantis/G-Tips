@@ -67,7 +67,7 @@ export function CsGoPage() {
               <h6 className={"card-title"}>{currentTip.team}</h6>
               <div>
                 <Link
-                  to={`/csgo-ReadD/${currentTip._id}}`}
+                  to={`/csgo-ReadD/${currentTip._id}`}
                   className={"btn btn-primary"}
                 >
                   Read

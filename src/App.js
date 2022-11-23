@@ -1,5 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Toaster } from "react-hot-toast"
+import { Toaster } from "react-hot-toast";
 
 import CsGoHP from "./Assets/Images/fb_image.png";
 import LolHP from "./Assets/Images/image LOL home 2.png";
@@ -10,20 +10,23 @@ import { Home } from "./Pages/Home/index";
 
 import { LolPage } from "./Pages/lolPage";
 import { FormLol } from "./FormPages/FormLol";
-import { ReadDLol } from "./ReadD/ReadDLol";
+import { ReadDLol } from "./ReadDPages/ReadDLol";
+import { LolEdit } from "./EditPages/lolEdit";
 
 import { CsGoPage } from "./Pages/csgoPage";
 import { FormCsGo } from "./FormPages/FormCsGo";
-import { ReadDCsgo } from "./ReadD/ReadDCsgo";
+import { ReadDCsgo } from "./ReadDPages/ReadDCsgo";
+import { CsgoEdit } from "./EditPages/csgoEdit";
 
 import { FifaPage } from "./Pages/fifaPage";
 import { FormFifa } from "./FormPages/FormFifa";
-import { ReadDFifa } from "./ReadD/ReadDFifa";
+import { ReadDFifa } from "./ReadDPages/ReadDFifa";
 
 function App() {
   return (
     <div className="App">
-    <Toaster/>
+      <Toaster />
+
       <Routes>
         <Route
           path="/"
@@ -35,10 +38,12 @@ function App() {
         <Route path="/lol" element={<LolPage />} />
         <Route path="/FormLol" element={<FormLol />} />
         <Route path="/lol-ReadD" element={<ReadDLol />} />
+        <Route path="/lol-Edit/:id" element={<LolEdit />} />
 
         <Route path="/csgo" element={<CsGoPage />} />
         <Route path="/FormCsGo" element={<FormCsGo />} />
         <Route path="/csgo-ReadD/:id" element={<ReadDCsgo />} />
+        <Route path="/csgo-Edit/:id" element={<CsgoEdit />} />
 
         <Route path="/fifa" element={<FifaPage />} />
         <Route path="/FormFifa" element={<FormFifa />} />

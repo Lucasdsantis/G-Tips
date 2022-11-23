@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
 
-export function FormCsGo() {
+export function CsgoEdit() {
   const divStyle = {
     margin: "50px",
     backgroundColor: "#808080",
@@ -14,53 +14,65 @@ export function FormCsGo() {
 
   const h1Style = {};
 
+  const params = useParams();
   const navigate = useNavigate();
 
-  const [form, setForm] = useState({
-    name: "",
-    team: "Team",
-    type: "Type",
-    map: "Map",
-    title: "",
-    tipBody: "",
-  });
+  const [tip, setTip] = useState({});
+
+  useEffect(() => {
+    async function FetchTip() {
+      try {
+        const response = await axios.get(
+          `https://ironrest.cyclic.app/Cs_Tips/${params.id}`
+        );
+        setTip(response.data);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    FetchTip();
+  }, []);
 
   function handleChange(e) {
     if (e.target.name === "Team") {
-      setForm({ ...form, team: e.target.value });
+      setTip({ ...tip, team: e.target.value });
       return;
     }
 
     if (e.target.name === "Type") {
-      setForm({ ...form, type: e.target.value });
+      setTip({ ...tip, type: e.target.value });
       return;
     }
 
     if (e.target.name === "Map") {
-      setForm({ ...form, map: e.target.value });
+      setTip({ ...tip, map: e.target.value });
       return;
     }
 
-    setForm({ ...form, [e.target.name]: e.target.value });
+    setTip({ ...tip, [e.target.name]: e.target.value });
   }
 
   async function handleSubmit(e) {
     e.preventDefault();
 
-    try {
-      await axios.post("https://ironrest.cyclic.app/Cs_Tips", form);
+    const infosToSendForAPI = { ...tip };
+    delete infosToSendForAPI._id;
+    console.log(infosToSendForAPI);
 
-      navigate("/csgo");
+    try {
+      await axios.put("https://ironrest.cyclic.app/Cs_Tips", infosToSendForAPI);
+
+      navigate(`http://localhost:3000/csgo-ReadD/${params.id}`);
     } catch (err) {
       console.log(err);
-      toast.error("Oops! Something went worng...");
+      toast.error("Ops! Algo deu errado ...");
     }
   }
 
   return (
     <>
       <div style={divStyle}>
-        <h1 style={h1Style}> Create CS:GO Tip</h1>
+        <h1 style={h1Style}> Edit CS:GO Tip</h1>
         <form onSubmit={handleSubmit}>
           <div className={"mb-3"}>
             <label htmlFor="input-name" className={"form-label"}>
@@ -72,7 +84,7 @@ export function FormCsGo() {
               id="input-name"
               placeholder="Yasmin"
               name="name"
-              value={form.name}
+              value={tip.name}
               onChange={handleChange}
             />
           </div>
@@ -85,7 +97,7 @@ export function FormCsGo() {
               className={"form-select"}
               id="input-select-Team"
               name="Team"
-              defaultValue={form.team}
+              defaultValue={tip.team}
               onChange={handleChange}
             >
               <option value="Team">Team</option>
@@ -102,7 +114,7 @@ export function FormCsGo() {
               className={"form-select"}
               id="input-select-type"
               name="Type"
-              defaultValue={form.type}
+              defaultValue={tip.type}
               onChange={handleChange}
             >
               <option value="type">Type</option>
@@ -120,7 +132,7 @@ export function FormCsGo() {
               className={"form-select"}
               id="input-select-Map"
               name="Map"
-              defaultValue={form.map}
+              defaultValue={tip.map}
               onChange={handleChange}
             >
               <option value="Map">Map</option>
@@ -146,7 +158,7 @@ export function FormCsGo() {
               id="input-tip-title"
               placeholder="How to rush to bomb A"
               name="title"
-              value={form.title}
+              value={tip.title}
               onChange={handleChange}
             />
           </div>
@@ -160,14 +172,16 @@ export function FormCsGo() {
               id="input-tip"
               rows="4"
               name="tipBody"
-              value={form.tipBody}
+              value={tip.tipBody}
               onChange={handleChange}
             ></textarea>
           </div>
 
-          <button type="submit" className="btn btn-primary">
-            Create
-          </button>
+          <div style={{ display: "flex", justifyContent: "end" }}>
+            <button type="submit" className="btn btn-primary">
+              Edit
+            </button>
+          </div>
         </form>
       </div>
     </>
