@@ -9,17 +9,24 @@ import { Link } from "react-router-dom";
 export function Home(props) {
   const { imgCsGoHP, imgLolHP, imgFifaHP } = props;
 
+  const nbstyle = {
+    background: "none",
+    margin: "20px",
+  };
+
   const divGeralNavbar = {
-    margin: "0",
     width: "100vw",
     display: "flex",
     flexDirection: "row",
     justifycontent: "space-between",
     maxWidth: "100vw",
+    position: "absolute",
+    zIndex: "999",
   };
 
   const gtipshome = {
     marginLeft: "20px",
+    color: "white",
   };
 
   const nlstyle = {
@@ -34,7 +41,9 @@ export function Home(props) {
 
   const carouselstyle = {
     width: "100vw",
-    heigth: "500px",
+    heigth: "500px ",
+
+    top: "0",
   };
 
   const gamesDiv = {
@@ -52,6 +61,7 @@ export function Home(props) {
   const fstyle = {
     backgroundColor: "grey",
     alignItems: "center",
+    color: "white",
   };
 
   const boxesfooter = {
@@ -81,6 +91,10 @@ export function Home(props) {
 
   const abtfooter = {
     textAlign: "center",
+    marginBottom: "20px",
+  };
+  const pfooter = {
+    fontSize: "0.7rem",
   };
 
   const [index, setIndex] = useState(0);
@@ -91,7 +105,7 @@ export function Home(props) {
 
   return (
     <>
-      <Navbar bg="light" expand="lg">
+      <Navbar style={nbstyle} bg="light" expand="lg">
         <Container className="div-geral-navbar" style={divGeralNavbar}>
           <div style={gtipshome}>
             <Navbar.Brand href="#home">G-TIPS</Navbar.Brand>
@@ -209,11 +223,11 @@ export function Home(props) {
           <div style={boxesfooter}>
             <div style={footerboxes}>
               <h6>Joey Quadros</h6>
-              <p>ljlkjkljkj</p>
+              <p style={pfooter}>IronHack Web Develoment student</p>
             </div>
             <div style={footerboxes}>
               <h6>Lucas de Santis</h6>
-              <p>ljlkjkljkj</p>
+              <p style={pfooter}>IronHack Web Develoment student</p>
             </div>
           </div>
         </div>
