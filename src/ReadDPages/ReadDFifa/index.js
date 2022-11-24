@@ -115,35 +115,46 @@ export function ReadDFifa() {
 
   // IMPLEMENTAR LIKES
 
-  const [counterLike, setConuterLike] = useState(0);
+  const [counterLike, setConuterLike] = useState(null);
 
-  const [counterDislike, setConuterDislike] = useState(0);
-
-  const incrementLike = () => {
-    setConuterLike(counterLike + 1);
-  };
-
-  const incrementDislike = () => {
-    setConuterDislike(counterDislike + 1);
-  };
+  const [counterDislike, setConuterDislike] = useState(null);
 
   // CRIANDO CHAVE PARA OS LIKES
 
   async function PutLikes() {
     const infosToSendForAPI = {
       ...tip,
-      like: counterLike,
-      disLike: counterDislike,
+      like: counterLike + 1,
     };
     delete infosToSendForAPI._id;
-    console.log(infosToSendForAPI);
 
     try {
       await axios.put(
         `https://ironrest.cyclic.app/Fifa_Tips/${params.id}`,
         infosToSendForAPI
       );
-      console.log("enviei: " + infosToSendForAPI);
+      setConuterLike(counterLike + 1);
+      console.log("enviei: ", infosToSendForAPI);
+    } catch (err) {
+      console.log(err);
+      toast.error("Ops! Algo deu errado ...");
+    }
+  }
+
+  async function PutDislike() {
+    const infosToSendForAPI = {
+      ...tip,
+      disLike: counterDislike + 1,
+    };
+    delete infosToSendForAPI._id;
+
+    try {
+      await axios.put(
+        `https://ironrest.cyclic.app/Fifa_Tips/${params.id}`,
+        infosToSendForAPI
+      );
+      setConuterDislike(counterDislike + 1);
+      console.log("enviei: ", infosToSendForAPI);
     } catch (err) {
       console.log(err);
       toast.error("Ops! Algo deu errado ...");
@@ -164,7 +175,6 @@ export function ReadDFifa() {
 
         if (response.data.like === "undefined") response.data.like = 0;
         if (response.data.disLike === "undefined") response.data.disLike = 0;
-        console.log(response.data.like);
 
         setTip(response.data);
       } catch (err) {
@@ -173,6 +183,14 @@ export function ReadDFifa() {
     }
     FetchTip();
   }, [counterLike, counterDislike]);
+
+  useEffect(() => {
+    setConuterLike(tip.like);
+  }, [tip]);
+
+  useEffect(() => {
+    setConuterDislike(tip.disLike);
+  }, [tip]);
 
   // LOGICA DO DELETE TIP
 
@@ -299,7 +317,6 @@ export function ReadDFifa() {
                   type="button"
                   className="btn btn-outline-success"
                   onClick={() => {
-                    incrementLike();
                     PutLikes();
                   }}
                 >
@@ -309,7 +326,7 @@ export function ReadDFifa() {
                   type="button"
                   className="btn btn-outline-danger"
                   onClick={() => {
-                    incrementDislike();
+                    PutDislike();
                   }}
                 >
                   {tip.disLike} Dislikes
