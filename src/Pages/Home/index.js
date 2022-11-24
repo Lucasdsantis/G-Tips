@@ -5,6 +5,7 @@ import Carousel from "react-bootstrap/Carousel";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
+import { hover } from "@testing-library/user-event/dist/hover";
 
 export function Home(props) {
   const { imgCsGoHP, imgLolHP, imgFifaHP } = props;
@@ -32,17 +33,25 @@ export function Home(props) {
 
   const gtipshome = {
     marginLeft: "40px",
-    color: "pink",
+    color: "white",
     fontSize: "3rem",
   };
 
   const nlstyle = {
     marginRight: "80px",
     marginLeft: "80px",
+    background: "none",
+    borderRadius: "20px",
   };
 
   const aboutusnav = {
     marginRight: "40px",
+  };
+
+  const bNavbarStyle = {
+    background: "none",
+    border: "0",
+    color: "white",
   };
 
   const imgcarousel = {
@@ -88,8 +97,8 @@ export function Home(props) {
     boderRadius: "40px",
     marginLeft: "20px",
     marginRight: "20px",
-
-    color: "pink",
+    textAlign: "center",
+    color: "white",
 
     fontWeight: "500",
   };
@@ -102,7 +111,7 @@ export function Home(props) {
   };
 
   const h3body2 = {
-    color: "pink",
+    color: "white",
     fontWeight: "500",
   };
 
@@ -110,15 +119,10 @@ export function Home(props) {
     color: "white",
   };
 
-  const footerboxes = {
-    marginLeft: "200px",
-    marginRight: "200px",
-  };
-
   const abtfooter = {
     textAlign: "center",
     marginBottom: "20px",
-    color: "pink",
+    color: "white",
   };
   const pfooter = {
     fontSize: "0.7rem",
@@ -131,6 +135,11 @@ export function Home(props) {
     setIndex(selectedIndex);
   };
 
+  // const transparent = { background: "none" };
+  // const grey = { backGround: "grey" };
+
+  // const [color, setColor] = useState(transparent);
+
   return (
     <>
       <Navbar style={nbstyle}>
@@ -140,17 +149,19 @@ export function Home(props) {
           </div>
           {/* <Navbar.Toggle aria-controls="basic-navbar-nav" /> */}
           {/* <Navbar.Collapse id="basic-navbar-nav"> */}
-
+          {/* onMouseEnter={() => setColor(grey)} */}
           {/* <Nav className="me-auto"> */}
           <div style={gamesDiv}>
             <Nav.Link style={nlstyle} href="../csgo">
-              Counter Strike Global Offensive
+              <button style={bNavbarStyle}>
+                Counter Strike Global Offensive
+              </button>
             </Nav.Link>
             <Nav.Link style={nlstyle} href="../lol">
-              League of Legends
+              <button style={bNavbarStyle}>League of Legends</button>
             </Nav.Link>
             <Nav.Link style={nlstyle} href="../fifa">
-              FIFA
+              <button style={bNavbarStyle}>FIFA</button>
             </Nav.Link>
           </div>
           <div style={aboutusnav}>
