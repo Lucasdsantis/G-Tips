@@ -37,7 +37,7 @@ function App() {
 
         <Route path="/lol" element={<LolPage />} />
         <Route path="/FormLol" element={<FormLol />} />
-        <Route path="/lol-ReadD" element={<ReadDLol />} />
+        <Route path="/lol-ReadD/:id" element={<ReadDLol />} />
         <Route path="/lol-Edit/:id" element={<LolEdit />} />
 
         <Route path="/csgo" element={<CsGoPage />} />

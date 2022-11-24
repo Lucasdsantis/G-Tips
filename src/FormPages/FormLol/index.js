@@ -22,7 +22,7 @@ export function FormLol() {
     padding: "1rem",
     border: "solid 1px black",
     borderRadius: "10px",
-    maxWidth: "50%",
+    Width: "70%",
   };
 
   const h1Style = {

@@ -134,9 +134,9 @@ export function CsGoPage() {
                 />
                 <div className={"card-body"}>
                   <h5 className={"card-title"}>{currentTip.title}</h5>
-                  <h6 className={"card-title"}>{currentTip.map}</h6>
-                  <h6 className={"card-title"}>{currentTip.type}</h6>
-                  <h6 className={"card-title"}>{currentTip.team}</h6>
+                  <h6 className={"card-title"}>Map: {currentTip.map}</h6>
+                  <h6 className={"card-title"}>Type: {currentTip.type}</h6>
+                  <h6 className={"card-title"}>Team: {currentTip.team}</h6>
                   <div>
                     <Link
                       to={`/csgo-ReadD/${currentTip._id}`}

@@ -3,16 +3,28 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
+import fifabackground from "../../Assets/Backgroung-img/backgroundfifa.jpeg";
+
 export function FormFifa() {
+  const divBackgorund = {
+    backgroundImage: `url(${fifabackground})`,
+    height: "100vh",
+    padding: "3.8rem",
+    backgroundSize: "cover",
+    // backgroundRepeat: "no-repeat",
+  };
+
   const divStyle = {
     margin: "50px",
-    backgroundColor: "grey",
+    backgroundColor: "#808080",
+    padding: "1rem",
+    border: "solid 1px black",
+    borderRadius: "10px",
+    maxWidth: "50%",
   };
 
   const h1Style = {
     textAling: "center",
-    marginTop: "50px",
-    marginLeft: "50px",
   };
 
   const navigate = useNavigate();
@@ -55,9 +67,9 @@ export function FormFifa() {
   }
 
   return (
-    <>
-      <h1 style={h1Style}> Create FIFA 23 Tip</h1>
+    <div style={divBackgorund}>
       <div style={divStyle}>
+        <h1 style={h1Style}> Create FIFA 23 Tip</h1>
         <form onSubmit={handleSubmit}>
           <div className={"mb-3"}>
             <label htmlFor="input-name" className={"form-label"}>
@@ -144,6 +156,6 @@ export function FormFifa() {
           </button>
         </form>
       </div>
-    </>
+    </div>
   );
 }

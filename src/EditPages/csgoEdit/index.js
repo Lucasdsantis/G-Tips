@@ -9,19 +9,25 @@ export function CsgoEdit() {
   const divBackgorund = {
     backgroundImage: `url(${backgroundimg5})`,
     height: "100vh",
-    padding: "4.5rem",
-    backgroundRepeat: "no-repeat",
+    padding: "3.8rem",
+    // backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    display: "flex",
+    justifyContent: "center",
   };
 
   const divStyle = {
     margin: "50px",
     backgroundColor: "#808080",
-    padding: "1.5rem",
+    padding: "1rem",
     border: "solid 1px black",
     borderRadius: "10px",
+    Width: "70%",
   };
 
-  const h1Style = {};
+  const h1Style = {
+    textAling: "center",
+  };
 
   const params = useParams();
   const navigate = useNavigate();

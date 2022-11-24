@@ -23,9 +23,6 @@ export function ReadDCsgo() {
     padding: "4.5rem",
     // backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
   };
 
   const divMae = {
@@ -34,7 +31,6 @@ export function ReadDCsgo() {
     // margin: "3rem",
     // marginTop: "5rem",
     gap: "2rem",
-    marginTop: "16rem",
   };
 
   const divTip = {
@@ -70,6 +66,7 @@ export function ReadDCsgo() {
     border: "solid 1px black",
     padding: "0.5rem",
     borderRadius: "10px",
+    display: "flex",
     flexWrap: "wrap",
   };
 
@@ -248,10 +245,12 @@ export function ReadDCsgo() {
           {/* cars tip */}
           <div className="card mb-3">
             <div className="card-body">
-              <p className="card-text">Tip: {tip.tipBody}</p>
-              <h6>
-                {tip.type} - {tip.team} - {tip.map}
-              </h6>
+              <h6 className="card-text">Tip: {tip.tipBody}</h6>
+              <p className="card-text">
+                <small className="text-muted">
+                  Type: {tip.type} | Team: {tip.team} | Map: {tip.map}
+                </small>
+              </p>
               <p className="card-text">
                 <small className="text-muted">By: {tip.name}</small>
               </p>
@@ -415,9 +414,9 @@ export function ReadDCsgo() {
                   />
                   <div className={"card-body"}>
                     <h5 className={"card-title"}>{currentTip.title}</h5>
-                    <h6 className={"card-title"}>{currentTip.map}</h6>
-                    <h6 className={"card-title"}>{currentTip.type}</h6>
-                    <h6 className={"card-title"}>{currentTip.team}</h6>
+                    <h6 className={"card-title"}>Map: {currentTip.map}</h6>
+                    <h6 className={"card-title"}>Type: {currentTip.type}</h6>
+                    <h6 className={"card-title"}>Team: {currentTip.team}</h6>
                     <div>
                       <Link
                         to={`/csgo-ReadD/${currentTip._id}`}
