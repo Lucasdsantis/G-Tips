@@ -1,17 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
 
 import fifabackground from "../../Assets/Backgroung-img/backgroundfifa.jpeg";
 
-export function FormFifa() {
+export function FifaEdit() {
   const divBackgorund = {
     backgroundImage: `url(${fifabackground})`,
     height: "100vh",
     padding: "3.8rem",
-    backgroundSize: "cover",
     // backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    display: "flex",
+    justifyContent: "center",
   };
 
   const divStyle = {
@@ -20,16 +22,17 @@ export function FormFifa() {
     padding: "1rem",
     border: "solid 1px black",
     borderRadius: "10px",
-    maxWidth: "50%",
+    Width: "70%",
   };
 
   const h1Style = {
     textAling: "center",
   };
 
+  const params = useParams();
   const navigate = useNavigate();
 
-  const [form, setForm] = useState({
+  const [tip, setTip] = useState({
     name: "",
     mode: "Mode",
     type: "Type",
@@ -37,30 +40,51 @@ export function FormFifa() {
     tipBody: "",
   });
 
+  useEffect(() => {
+    async function FetchTip() {
+      try {
+        const response = await axios.get(
+          `https://ironrest.cyclic.app/Fifa_Tips/${params.id}`
+        );
+        setTip(response.data);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    FetchTip();
+  }, []);
+
   function handleChange(e) {
     if (e.target.name === "Type") {
-      setForm({ ...form, type: e.target.value });
+      setTip({ ...tip, type: e.target.value });
       return;
     }
 
     if (e.target.name === "Mode") {
-      setForm({ ...form, mode: e.target.value });
+      setTip({ ...tip, mode: e.target.value });
       return;
     }
 
-    setForm({ ...form, [e.target.name]: e.target.value });
+    setTip({ ...tip, [e.target.name]: e.target.value });
   }
 
   async function handleSubmit(e) {
     e.preventDefault();
 
-    try {
-      await axios.post("https://ironrest.cyclic.app/Fifa_Tips", form);
+    const infosToSendForAPI = { ...tip };
+    delete infosToSendForAPI._id;
+    console.log(infosToSendForAPI);
 
-      navigate("/fifa");
+    try {
+      await axios.put(
+        `https://ironrest.cyclic.app/Fifa_Tips/${params.id}`,
+        infosToSendForAPI
+      );
+
+      navigate(`/fifa-ReadD/${params.id}`);
     } catch (err) {
       console.log(err);
-      toast.error("Oops! Something went worng...");
+      toast.error("Ops! Algo deu errado ...");
     }
   }
 
@@ -79,7 +103,7 @@ export function FormFifa() {
               id="input-name"
               placeholder="Lucas"
               name="name"
-              value={form.name}
+              value={tip.name}
               onChange={handleChange}
             />
           </div>
@@ -92,7 +116,7 @@ export function FormFifa() {
               className={"form-select"}
               id="input-select-mode"
               name="mode"
-              defaultValue={form.mode}
+              defaultValue={tip.mode}
               onChange={handleChange}
             >
               <option value="mode">Mode:</option>
@@ -110,7 +134,7 @@ export function FormFifa() {
               className={"form-select"}
               id="input-select-type"
               name="type"
-              defaultValue={form.type}
+              defaultValue={tip.type}
               onChange={handleChange}
             >
               <option value="Type">Type:</option>
@@ -130,7 +154,7 @@ export function FormFifa() {
               id="input-tip-title"
               placeholder="Promising Player"
               name="tipTitle"
-              value={form.tipTitle}
+              value={tip.tipTitle}
               onChange={handleChange}
             />
           </div>
@@ -144,13 +168,13 @@ export function FormFifa() {
               id="input-tip"
               rows="4"
               name="tipBody"
-              value={form.tipBody}
+              value={tip.tipBody}
               onChange={handleChange}
             ></textarea>
           </div>
 
           <button type="submit" className="btn btn-primary">
-            Create
+            Edit
           </button>
         </form>
       </div>
