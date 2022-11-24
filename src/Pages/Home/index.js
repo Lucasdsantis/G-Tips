@@ -10,46 +10,49 @@ export function Home(props) {
   const { imgCsGoHP, imgLolHP, imgFifaHP } = props;
 
   const nbstyle = {
+    position: "absolute",
     background: "none",
-    margin: "20px",
+    top: "0px",
+    width: "100%",
+    zIndex: "999",
+    border: "0",
+    borderRadius: "0",
+    color: "white",
+    fontWeight: "600",
   };
 
   const divGeralNavbar = {
-    width: "100vw",
+    margin: "0",
+    maxWidth: "100vw",
     display: "flex",
     flexDirection: "row",
     justifycontent: "space-between",
-    maxWidth: "100vw",
-
-    position: "absolute",
-    zIndex: "999",
+    fontSize: "1.4rem",
   };
 
   const gtipshome = {
-    marginLeft: "20px",
-    color: "white",
+    marginLeft: "40px",
+    color: "pink",
+    fontSize: "3rem",
   };
 
   const nlstyle = {
-    marginRight: "50px",
-    marginLeft: "50px",
+    marginRight: "80px",
+    marginLeft: "80px",
   };
 
   const aboutusnav = {
-    marginRight: "20px",
-    style: "none",
+    marginRight: "40px",
   };
 
   const imgcarousel = {
     objectFit: "cover",
     width: "100vw",
-    heigth: "30vh",
   };
 
   const carouselstyle = {
     width: "100vw",
-    heigth: "auto",
-
+    heigth: "10em",
     top: "0",
   };
 
@@ -61,7 +64,6 @@ export function Home(props) {
   const body2 = {
     display: "flex",
     flexDirection: "row",
-
     justifyContent: "center",
     backgroundColor: "#dfdbdb",
   };
@@ -80,16 +82,32 @@ export function Home(props) {
   };
 
   const bStyle = {
-    width: "200px",
-    heigth: "50px",
-    fontSize: "1.3rem",
+    width: "250px",
+    heigth: "70px",
+    fontSize: "2rem",
     boderRadius: "40px",
     marginLeft: "20px",
     marginRight: "20px",
+
+    color: "pink",
+
+    fontWeight: "500",
   };
 
   const body2boxes = {
     margin: "50px",
+    backgroundColor: "grey",
+    padding: "20px",
+    borderRadius: "20px",
+  };
+
+  const h3body2 = {
+    color: "pink",
+    fontWeight: "500",
+  };
+
+  const textbody2 = {
+    color: "white",
   };
 
   const footerboxes = {
@@ -100,9 +118,11 @@ export function Home(props) {
   const abtfooter = {
     textAlign: "center",
     marginBottom: "20px",
+    color: "pink",
   };
   const pfooter = {
     fontSize: "0.7rem",
+    color: "white",
   };
 
   const [index, setIndex] = useState(0);
@@ -113,10 +133,10 @@ export function Home(props) {
 
   return (
     <>
-      <Navbar style={nbstyle} bg="light" expand="lg">
+      <Navbar style={nbstyle}>
         <Container className="div-geral-navbar" style={divGeralNavbar}>
           <div style={gtipshome}>
-            <Navbar.Brand href="#home">G-TIPS</Navbar.Brand>
+            <Navbar href="#home">G-TIPS</Navbar>
           </div>
           {/* <Navbar.Toggle aria-controls="basic-navbar-nav" /> */}
           {/* <Navbar.Collapse id="basic-navbar-nav"> */}
@@ -156,7 +176,7 @@ export function Home(props) {
           <Carousel.Caption>
             <Link to={"/csgo"}>
               {" "}
-              <Button style={bStyle} variant="info">
+              <Button style={bStyle} variant="secondary">
                 Tips
               </Button>{" "}
             </Link>
@@ -165,7 +185,7 @@ export function Home(props) {
                 "https://store.steampowered.com/app/730/CounterStrike_Global_Offensive/"
               }
               style={bStyle}
-              variant="info"
+              variant="secondary"
             >
               Play Now
             </Button>{" "}
@@ -176,14 +196,14 @@ export function Home(props) {
 
           <Carousel.Caption>
             <Link to={"/lol"}>
-              <Button style={bStyle} variant="info">
+              <Button style={bStyle} variant="secondary">
                 Tips
               </Button>{" "}
             </Link>
             <Button
               href={"https://www.leagueoflegends.com/pt-br/"}
               style={bStyle}
-              variant="info"
+              variant="secondary"
             >
               Play Now
             </Button>{" "}
@@ -199,14 +219,14 @@ export function Home(props) {
 
           <Carousel.Caption>
             <Link to={"/fifa"}>
-              <Button style={bStyle} variant="info">
+              <Button style={bStyle} variant="secondary">
                 Tips
               </Button>{" "}
             </Link>
             <Button
               href={"https://www.ea.com/pt-br/games/fifa/fifa-23"}
               style={bStyle}
-              variant="info"
+              variant="secondary"
             >
               Play Now
             </Button>{" "}
@@ -216,19 +236,19 @@ export function Home(props) {
 
       <div style={body2}>
         <div style={body2boxes}>
-          <h3>What it is?</h3>
-          <p>
+          <h3 style={h3body2}>What it is?</h3>
+          <p style={textbody2}>
             This website is a forum for tips for the most played games in the
-            world
+            world!!
           </p>
         </div>
 
         <div style={body2boxes}>
-          <h3>Why use it?</h3>
+          <h3 style={h3body2}>Why use it?</h3>
           <ul>
-            <li>Improve your Gameplay</li>
-            <li>Share your Gameplay tips</li>
-            <li>Interact with the gaming community</li>
+            <li style={textbody2}>Improve your Gameplay</li>
+            <li style={textbody2}>Share your Gameplay tips</li>
+            <li style={textbody2}>Interact with the gaming community</li>
           </ul>
         </div>
       </div>
@@ -239,14 +259,12 @@ export function Home(props) {
             About Us
           </h4>
           <div style={boxesfooter}>
-            <div style={footerboxes}>
-              <h6>Joey Quadros</h6>
-              <p style={pfooter}>IronHack Web Develoment student</p>
-            </div>
-            <div style={footerboxes}>
-              <h6>Lucas de Santis</h6>
-              <p style={pfooter}>IronHack Web Develoment student</p>
-            </div>
+            <p style={pfooter}>
+              This website was projectec by Lucas de Santis and Joey Quadros.Our
+              main goal with this project is create a place were players from
+              all type of games can exchage tips and experiences and improve
+              themselves.
+            </p>
           </div>
         </div>
       </footer>

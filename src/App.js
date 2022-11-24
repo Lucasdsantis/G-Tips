@@ -1,9 +1,9 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Toaster } from "react-hot-toast";
 
-import CsGoHP from "./Assets/Images/fb_image.png";
+import CsGoHP from "./Assets/Images/cs go image home 1200 x 630.png";
 import LolHP from "./Assets/Images/image LOL home 2.png";
-import FifaHP from "./Assets/Images/fifa image 2 home page.png";
+import FifaHP from "./Assets/Images/imagem fifa 23 vj 1200 x 630.png";
 
 import { Routes, Route } from "react-router-dom";
 import { Home } from "./Pages/Home/index";
