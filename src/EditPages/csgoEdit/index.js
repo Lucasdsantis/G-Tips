@@ -22,7 +22,11 @@ export function CsgoEdit() {
     padding: "1rem",
     border: "solid 1px black",
     borderRadius: "10px",
-    Width: "70%",
+    Width: "100%",
+    height: "85%",
+    overflow: "scroll",
+    overflowX: "hidden",
+    overflowY: "auto",
   };
 
   const h1Style = {
@@ -122,7 +126,7 @@ export function CsgoEdit() {
               className={"form-select"}
               id="input-select-Team"
               name="Team"
-              defaultValue={tip.team}
+              value={tip.team}
               onChange={handleChange}
             >
               <option value="Team">Team</option>
@@ -139,7 +143,7 @@ export function CsgoEdit() {
               className={"form-select"}
               id="input-select-type"
               name="Type"
-              defaultValue={tip.type}
+              value={tip.type}
               onChange={handleChange}
             >
               <option value="type">Type</option>
@@ -157,7 +161,7 @@ export function CsgoEdit() {
               className={"form-select"}
               id="input-select-Map"
               name="Map"
-              defaultValue={tip.map}
+              value={tip.map}
               onChange={handleChange}
             >
               <option value="Map">Map</option>

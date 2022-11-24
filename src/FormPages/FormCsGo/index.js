@@ -22,6 +22,11 @@ export function FormCsGo() {
     padding: "1.5rem",
     border: "solid 1px black",
     borderRadius: "10px",
+    Width: "100%",
+    height: "90%",
+    overflow: "scroll",
+    overflowX: "hidden",
+    overflowY: "auto",
   };
 
   const h1Style = {};

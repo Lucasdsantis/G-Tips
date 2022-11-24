@@ -116,7 +116,7 @@ export function FifaEdit() {
               className={"form-select"}
               id="input-select-mode"
               name="mode"
-              defaultValue={tip.mode}
+              value={tip.mode}
               onChange={handleChange}
             >
               <option value="mode">Mode:</option>
@@ -134,7 +134,7 @@ export function FifaEdit() {
               className={"form-select"}
               id="input-select-type"
               name="type"
-              defaultValue={tip.type}
+              value={tip.type}
               onChange={handleChange}
             >
               <option value="Type">Type:</option>

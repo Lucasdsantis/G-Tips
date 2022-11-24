@@ -31,6 +31,8 @@ export function ReadDCsgo() {
     // margin: "3rem",
     // marginTop: "5rem",
     gap: "2rem",
+    height: "100%",
+    width: "100%",
   };
 
   const divTip = {
@@ -39,18 +41,20 @@ export function ReadDCsgo() {
     width: "70%",
     border: "solid 1px black",
     borderRadius: "10px",
-    display: "flex",
-    alignItems: "flexStart",
-    flexFlow: "column wrap",
-    flexWrap: "wrap",
+    overflow: "scroll",
+    overflowX: "hidden",
+    overflowY: "auto",
   };
 
   const divReadMore = {
     backgroundColor: "#808080",
     padding: "1rem",
-    width: "20rem",
+    width: "24rem",
     border: "solid 1px black",
     borderRadius: "10px",
+    overflow: "scroll",
+    overflowX: "hidden",
+    overflowY: "auto",
   };
 
   const divAddComment = {
@@ -66,8 +70,6 @@ export function ReadDCsgo() {
     border: "solid 1px black",
     padding: "0.5rem",
     borderRadius: "10px",
-    display: "flex",
-    flexWrap: "wrap",
   };
 
   const divCardComment = {
@@ -248,7 +250,7 @@ export function ReadDCsgo() {
               <h6 className="card-text">Tip: {tip.tipBody}</h6>
               <p className="card-text">
                 <small className="text-muted">
-                  Type: {tip.type} | Team: {tip.team} | Map: {tip.map}
+                  Type: {tip.type} | Team: {tip.team} | Map: {`${tip.map}`}
                 </small>
               </p>
               <p className="card-text">
