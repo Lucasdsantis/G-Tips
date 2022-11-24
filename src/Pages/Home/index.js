@@ -136,7 +136,7 @@ export function Home(props) {
       <Navbar style={nbstyle}>
         <Container className="div-geral-navbar" style={divGeralNavbar}>
           <div style={gtipshome}>
-            <Navbar href="#home">G-TIPS</Navbar>
+            <Navbar href="#home">GTIPS</Navbar>
           </div>
           {/* <Navbar.Toggle aria-controls="basic-navbar-nav" /> */}
           {/* <Navbar.Collapse id="basic-navbar-nav"> */}
@@ -260,9 +260,9 @@ export function Home(props) {
           </h4>
           <div style={boxesfooter}>
             <p style={pfooter}>
-              This website was projectec by Lucas de Santis and Joey Quadros.Our
-              main goal with this project is create a place were players from
-              all type of games can exchage tips and experiences and improve
+              GTIPS was projectec by Lucas de Santis and Joey Quadros.Our main
+              goal with this project is create a place were players from all
+              type of games can exchage tips and experiences and improve
               themselves.
             </p>
           </div>
