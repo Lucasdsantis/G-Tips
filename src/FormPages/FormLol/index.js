@@ -3,16 +3,30 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
+import imgLOL5 from "../../Assets/img-lol/imgLOL5.jpeg";
+
 export function FormLol() {
+  const divBackgorund = {
+    backgroundImage: `url(${imgLOL5})`,
+    height: "100vh",
+    padding: "3.8rem",
+    // backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    display: "flex",
+    justifyContent: "center",
+  };
+
   const divStyle = {
     margin: "50px",
-    backgroundColor: "grey",
+    backgroundColor: "#808080",
+    padding: "1rem",
+    border: "solid 1px black",
+    borderRadius: "10px",
+    Width: "70%",
   };
 
   const h1Style = {
     textAling: "center",
-    marginTop: "50px",
-    marginLeft: "50px",
   };
 
   const [form, setForm] = useState({
@@ -52,9 +66,9 @@ export function FormLol() {
   }
 
   return (
-    <>
-      <h1 style={h1Style}> Create League of Legends Tip</h1>
+    <div style={divBackgorund}>
       <div style={divStyle}>
+        <h1 style={h1Style}> Create League of Legends Tip</h1>
         <form onSubmit={handleSubmit}>
           <div className={"mb-3"}>
             <label htmlFor="input-name" className={"form-label"}>
@@ -165,6 +179,6 @@ export function FormLol() {
           </button>
         </form>
       </div>
-    </>
+    </div>
   );
 }

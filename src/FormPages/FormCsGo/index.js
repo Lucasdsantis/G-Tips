@@ -9,9 +9,11 @@ export function FormCsGo() {
   const divBackgorund = {
     backgroundImage: `url(${backgroundimg5})`,
     height: "100vh",
-    padding: "4.5rem",
+    padding: "3.8rem",
     // backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
+    display: "flex",
+    justifyContent: "center",
   };
 
   const divStyle = {
