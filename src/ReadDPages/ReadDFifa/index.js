@@ -113,6 +113,43 @@ export function ReadDFifa() {
     Ffiaimg7,
   ];
 
+  // IMPLEMENTAR LIKES
+
+  const [counterLike, setConuterLike] = useState(0);
+
+  const [counterDislike, setConuterDislike] = useState(0);
+
+  const incrementLike = () => {
+    setConuterLike(counterLike + 1);
+  };
+
+  const incrementDislike = () => {
+    setConuterDislike(counterDislike + 1);
+  };
+
+  // CRIANDO CHAVE PARA OS LIKES
+
+  async function PutLikes() {
+    const infosToSendForAPI = {
+      ...tip,
+      like: counterLike,
+      disLike: counterDislike,
+    };
+    delete infosToSendForAPI._id;
+    console.log(infosToSendForAPI);
+
+    try {
+      await axios.put(
+        `https://ironrest.cyclic.app/Fifa_Tips/${params.id}`,
+        infosToSendForAPI
+      );
+      console.log("enviei: " + infosToSendForAPI);
+    } catch (err) {
+      console.log(err);
+      toast.error("Ops! Algo deu errado ...");
+    }
+  }
+
   // LOGICA DO READ DETAILS
 
   const params = useParams();
@@ -124,13 +161,18 @@ export function ReadDFifa() {
         const response = await axios.get(
           `https://ironrest.cyclic.app/Fifa_Tips/${params.id}`
         );
+
+        if (response.data.like === "undefined") response.data.like = 0;
+        if (response.data.disLike === "undefined") response.data.disLike = 0;
+        console.log(response.data.like);
+
         setTip(response.data);
       } catch (err) {
         console.log(err);
       }
     }
     FetchTip();
-  }, []);
+  }, [counterLike, counterDislike]);
 
   // LOGICA DO DELETE TIP
 
@@ -229,20 +271,6 @@ export function ReadDFifa() {
     FetchTips();
   }, []);
 
-  // IMPLEMENTAR LIKES
-
-  const [counterLike, setConuterLike] = useState(0);
-
-  const [counterDislike, setConuterDislike] = useState(0);
-
-  const incrementLike = () => {
-    setConuterLike(counterLike + 1);
-  };
-
-  const incrementDislike = () => {
-    setConuterDislike(counterDislike + 1);
-  };
-
   return (
     <div style={divBackgorund}>
       {/* DIV MAE */}
@@ -270,16 +298,21 @@ export function ReadDFifa() {
                   style={{ marginRight: "0.5rem" }}
                   type="button"
                   className="btn btn-outline-success"
-                  onClick={incrementLike}
+                  onClick={() => {
+                    incrementLike();
+                    PutLikes();
+                  }}
                 >
-                  {counterLike} Likes
+                  {tip.like} Likes
                 </button>
                 <button
                   type="button"
                   className="btn btn-outline-danger"
-                  onClick={incrementDislike}
+                  onClick={() => {
+                    incrementDislike();
+                  }}
                 >
-                  {counterDislike} Dislikes
+                  {tip.disLike} Dislikes
                 </button>
               </div>
               <div style={divButton}>

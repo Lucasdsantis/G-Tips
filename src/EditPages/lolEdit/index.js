@@ -115,7 +115,7 @@ export function LolEdit() {
               className={"form-select"}
               id="input-select-position"
               name="position"
-              defaultValue={tip.position}
+              value={tip.position}
               onChange={handleChange}
             >
               <option value="Position">Position</option>
@@ -135,7 +135,7 @@ export function LolEdit() {
               className={"form-select"}
               id="input-select-type"
               name="type"
-              defaultValue={tip.type}
+              value={tip.type}
               onChange={handleChange}
             >
               <option value="Type">Type</option>

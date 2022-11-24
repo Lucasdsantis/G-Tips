@@ -26,9 +26,14 @@ export function CsGoPage() {
 
   const divMae = {
     backgroundColor: "#808080",
-    padding: "1.3rem",
+    padding: "1rem",
+    width: "100%",
     border: "solid 1px black",
     borderRadius: "10px",
+    height: "90%",
+    overflow: "scroll",
+    overflowX: "hidden",
+    overflowY: "auto",
   };
 
   const divTitle = {
