@@ -21,6 +21,7 @@ import { CsgoEdit } from "./EditPages/csgoEdit";
 import { FifaPage } from "./Pages/fifaPage";
 import { FormFifa } from "./FormPages/FormFifa";
 import { ReadDFifa } from "./ReadDPages/ReadDFifa";
+import { FifaEdit } from "./EditPages/fifaEdit";
 
 function App() {
   return (
@@ -47,7 +48,8 @@ function App() {
 
         <Route path="/fifa" element={<FifaPage />} />
         <Route path="/FormFifa" element={<FormFifa />} />
-        <Route path="/fifa-ReadD" element={<ReadDFifa />} />
+        <Route path="/fifa-ReadD/:id" element={<ReadDFifa />} />
+        <Route path="/fifa-Edit/:id" element={<FifaEdit />} />
       </Routes>
     </div>
   );
