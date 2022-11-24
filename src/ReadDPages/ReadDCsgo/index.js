@@ -49,7 +49,7 @@ export function ReadDCsgo() {
   const divReadMore = {
     backgroundColor: "#808080",
     padding: "1rem",
-    width: "24rem",
+    width: "20rem",
     border: "solid 1px black",
     borderRadius: "10px",
     overflow: "scroll",
@@ -108,6 +108,54 @@ export function ReadDCsgo() {
     objectfFit: "cover",
   };
 
+  // IMPLEMENTAR LIKES
+
+  const [counterLike, setConuterLike] = useState(null);
+
+  const [counterDislike, setConuterDislike] = useState(null);
+
+  // CRIANDO CHAVE PARA OS LIKES
+
+  async function PutLikes() {
+    const infosToSendForAPI = {
+      ...tip,
+      like: counterLike + 1,
+    };
+    delete infosToSendForAPI._id;
+
+    try {
+      await axios.put(
+        `https://ironrest.cyclic.app/Cs_Tips/${params.id}`,
+        infosToSendForAPI
+      );
+      setConuterLike(counterLike + 1);
+      console.log("enviei: ", infosToSendForAPI);
+    } catch (err) {
+      console.log(err);
+      toast.error("Ops! Algo deu errado ...");
+    }
+  }
+
+  async function PutDislike() {
+    const infosToSendForAPI = {
+      ...tip,
+      disLike: counterDislike + 1,
+    };
+    delete infosToSendForAPI._id;
+
+    try {
+      await axios.put(
+        `https://ironrest.cyclic.app/Cs_Tips/${params.id}`,
+        infosToSendForAPI
+      );
+      setConuterDislike(counterDislike + 1);
+      console.log("enviei: ", infosToSendForAPI);
+    } catch (err) {
+      console.log(err);
+      toast.error("Ops! Algo deu errado ...");
+    }
+  }
+
   // LOGICA DO READ DETAILS
 
   const params = useParams();
@@ -125,7 +173,17 @@ export function ReadDCsgo() {
       }
     }
     FetchTip();
-  }, []);
+  }, [counterLike, counterDislike]);
+
+  // useEffect p/ likes e dislikes
+
+  useEffect(() => {
+    setConuterLike(tip.like);
+  }, [tip]);
+
+  useEffect(() => {
+    setConuterDislike(tip.disLike);
+  }, [tip]);
 
   // LOGICA DO DELETE TIP
 
@@ -222,20 +280,6 @@ export function ReadDCsgo() {
     FetchTips();
   }, []);
 
-  // IMPLEMENTAR LIKES
-
-  const [counterLike, setConuterLike] = useState(0);
-
-  const [counterDislike, setConuterDislike] = useState(0);
-
-  const incrementLike = () => {
-    setConuterLike(counterLike + 1);
-  };
-
-  const incrementDislike = () => {
-    setConuterDislike(counterDislike + 1);
-  };
-
   return (
     <div style={divBackgorund}>
       {/* DIV MAE */}
@@ -263,14 +307,18 @@ export function ReadDCsgo() {
                   style={{ marginRight: "0.5rem" }}
                   type="button"
                   className="btn btn-outline-success"
-                  onClick={incrementLike}
+                  onClick={() => {
+                    PutLikes();
+                  }}
                 >
                   {counterLike} Likes
                 </button>
                 <button
                   type="button"
                   className="btn btn-outline-danger"
-                  onClick={incrementDislike}
+                  onClick={() => {
+                    PutDislike();
+                  }}
                 >
                   {counterDislike} Dislikes
                 </button>

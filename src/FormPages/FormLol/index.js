@@ -19,10 +19,14 @@ export function FormLol() {
   const divStyle = {
     margin: "50px",
     backgroundColor: "#808080",
-    padding: "1rem",
+    padding: "1.5rem",
     border: "solid 1px black",
     borderRadius: "10px",
-    Width: "70%",
+    Width: "100%",
+    height: "90%",
+    overflow: "scroll",
+    overflowX: "hidden",
+    overflowY: "auto",
   };
 
   const h1Style = {

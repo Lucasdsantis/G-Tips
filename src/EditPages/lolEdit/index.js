@@ -22,7 +22,11 @@ export function LolEdit() {
     padding: "1rem",
     border: "solid 1px black",
     borderRadius: "10px",
-    Width: "70%",
+    Width: "100%",
+    height: "85%",
+    overflow: "scroll",
+    overflowX: "hidden",
+    overflowY: "auto",
   };
 
   const h1Style = {

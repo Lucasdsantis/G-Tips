@@ -28,6 +28,8 @@ export function ReadDFifa() {
     // margin: "3rem",
     // marginTop: "5rem",
     gap: "2rem",
+    height: "100%",
+    width: "100%",
   };
 
   const divTip = {
@@ -36,10 +38,9 @@ export function ReadDFifa() {
     width: "70%",
     border: "solid 1px black",
     borderRadius: "10px",
-    display: "flex",
-    alignItems: "flexStart",
-    flexFlow: "column wrap",
-    flexWrap: "wrap",
+    overflow: "scroll",
+    overflowX: "hidden",
+    overflowY: "auto",
   };
 
   const divReadMore = {
@@ -48,6 +49,9 @@ export function ReadDFifa() {
     width: "20rem",
     border: "solid 1px black",
     borderRadius: "10px",
+    overflow: "scroll",
+    overflowX: "hidden",
+    overflowY: "auto",
   };
 
   const divAddComment = {
@@ -63,8 +67,6 @@ export function ReadDFifa() {
     border: "solid 1px black",
     padding: "0.5rem",
     borderRadius: "10px",
-    display: "flex",
-    flexWrap: "wrap",
   };
 
   const divCardComment = {
@@ -183,6 +185,8 @@ export function ReadDFifa() {
     }
     FetchTip();
   }, [counterLike, counterDislike]);
+
+  // useEffect likes
 
   useEffect(() => {
     setConuterLike(tip.like);

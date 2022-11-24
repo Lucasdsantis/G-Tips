@@ -25,6 +25,8 @@ export function ReadDLol() {
     // margin: "3rem",
     // marginTop: "5rem",
     gap: "2rem",
+    height: "100%",
+    width: "100%",
   };
 
   const divTip = {
@@ -33,10 +35,9 @@ export function ReadDLol() {
     width: "70%",
     border: "solid 1px black",
     borderRadius: "10px",
-    display: "flex",
-    alignItems: "flexStart",
-    flexFlow: "column wrap",
-    flexWrap: "wrap",
+    overflow: "scroll",
+    overflowX: "hidden",
+    overflowY: "auto",
   };
 
   const divReadMore = {
@@ -45,6 +46,9 @@ export function ReadDLol() {
     width: "20rem",
     border: "solid 1px black",
     borderRadius: "10px",
+    overflow: "scroll",
+    overflowX: "hidden",
+    overflowY: "auto",
   };
 
   const divAddComment = {
@@ -60,8 +64,6 @@ export function ReadDLol() {
     border: "solid 1px black",
     padding: "0.5rem",
     borderRadius: "10px",
-    display: "flex",
-    flexWrap: "wrap",
   };
 
   const divCardComment = {
@@ -102,6 +104,54 @@ export function ReadDLol() {
 
   const allImgs = [lolimg2, lolimg5, lolimg6, lolimg7];
 
+  // IMPLEMENTAR LIKES
+
+  const [counterLike, setConuterLike] = useState(+0);
+
+  const [counterDislike, setConuterDislike] = useState(0);
+
+  // CRIANDO CHAVE PARA OS LIKES
+
+  async function PutLikes() {
+    const infosToSendForAPI = {
+      ...tip,
+      like: counterLike + 1,
+    };
+    delete infosToSendForAPI._id;
+
+    try {
+      await axios.put(
+        `https://ironrest.cyclic.app/Lol_Tips/${params.id}`,
+        infosToSendForAPI
+      );
+      setConuterLike(counterLike + 1);
+      console.log("enviei: ", infosToSendForAPI);
+    } catch (err) {
+      console.log(err);
+      toast.error("Ops! Algo deu errado ...");
+    }
+  }
+
+  async function PutDislike() {
+    const infosToSendForAPI = {
+      ...tip,
+      disLike: counterDislike + 1,
+    };
+    delete infosToSendForAPI._id;
+
+    try {
+      await axios.put(
+        `https://ironrest.cyclic.app/Lol_Tips/${params.id}`,
+        infosToSendForAPI
+      );
+      setConuterDislike(counterDislike + 1);
+      console.log("enviei: ", infosToSendForAPI);
+    } catch (err) {
+      console.log(err);
+      toast.error("Ops! Algo deu errado ...");
+    }
+  }
+
   // LOGICA DO READ DETAILS
 
   const params = useParams();
@@ -119,7 +169,7 @@ export function ReadDLol() {
       }
     }
     FetchTip();
-  }, []);
+  }, [counterLike, counterDislike]);
 
   // LOGICA DO DELETE TIP
 
@@ -134,6 +184,16 @@ export function ReadDLol() {
       toast.error("Oops! Something went worng...");
     }
   }
+
+  // useEffect p/ likes e dislikes
+
+  useEffect(() => {
+    setConuterLike(tip.like);
+  }, [tip]);
+
+  useEffect(() => {
+    setConuterDislike(tip.disLike);
+  }, [tip]);
 
   // LOGICA DOS COMENTARIOS
 
@@ -218,20 +278,6 @@ export function ReadDLol() {
     FetchTips();
   }, []);
 
-  // IMPLEMENTAR LIKES
-
-  const [counterLike, setConuterLike] = useState(0);
-
-  const [counterDislike, setConuterDislike] = useState(0);
-
-  const incrementLike = () => {
-    setConuterLike(counterLike + 1);
-  };
-
-  const incrementDislike = () => {
-    setConuterDislike(counterDislike + 1);
-  };
-
   return (
     <div style={divBackgorund}>
       {/* DIV MAE */}
@@ -260,14 +306,18 @@ export function ReadDLol() {
                   style={{ marginRight: "0.5rem" }}
                   type="button"
                   className="btn btn-outline-success"
-                  onClick={incrementLike}
+                  onClick={() => {
+                    PutLikes();
+                  }}
                 >
                   {counterLike} Likes
                 </button>
                 <button
                   type="button"
                   className="btn btn-outline-danger"
-                  onClick={incrementDislike}
+                  onClick={() => {
+                    PutDislike();
+                  }}
                 >
                   {counterDislike} Dislikes
                 </button>
