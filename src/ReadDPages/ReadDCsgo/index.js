@@ -189,6 +189,7 @@ export function ReadDCsgo() {
       ...tip,
       like: counterLike + 1,
     };
+    console.log(infosToSendForAPI);
     delete infosToSendForAPI._id;
 
     try {
@@ -235,6 +236,21 @@ export function ReadDCsgo() {
         const response = await axios.get(
           `https://ironrest.cyclic.app/Cs_Tips/${params.id}`
         );
+
+        if (
+          response.data.like === "undefined" ||
+          isNaN(response.data.disLike)
+        ) {
+          response.data.like = 0;
+        }
+
+        if (
+          response.data.disLike === "undefined" ||
+          isNaN(response.data.disLike)
+        ) {
+          response.data.disLike = 0;
+        }
+
         setTip(response.data);
       } catch (err) {
         console.log(err);
@@ -246,10 +262,20 @@ export function ReadDCsgo() {
   // useEffect p/ likes e dislikes
 
   useEffect(() => {
+    // if (tip.like === "undefined") {
+    //   setConuterLike(0);
+    // } else {
+    //   setConuterLike(tip.like);
+    // }
     setConuterLike(tip.like);
   }, [tip]);
 
   useEffect(() => {
+    // if (tip.disLike === "undefined") {
+    //   setConuterDislike(0);
+    // } else {
+    //   setConuterDislike(tip.disLike);
+    // }
     setConuterDislike(tip.disLike);
   }, [tip]);
 
@@ -433,7 +459,7 @@ export function ReadDCsgo() {
                     PutLikes();
                   }}
                 >
-                  {counterLike} Likes
+                  {tip.like} Likes
                 </button>
                 <button
                   type="button"
@@ -442,7 +468,7 @@ export function ReadDCsgo() {
                     PutDislike();
                   }}
                 >
-                  {counterDislike} Dislikes
+                  {tip.disLike} Dislikes
                 </button>
               </div>
               <div style={divButton}>
