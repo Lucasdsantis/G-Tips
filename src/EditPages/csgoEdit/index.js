@@ -10,7 +10,7 @@ import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 
 export function CsgoEdit() {
-  //navbar começa qui
+  //estilo da navbar começa aqui
   const nbstyle = {
     position: "absolute",
     background: "none",
@@ -20,7 +20,6 @@ export function CsgoEdit() {
     border: "0",
     borderRadius: "0",
     color: "white",
-    fontWeight: "600",
   };
 
   const divGeralNavbar = {
@@ -33,9 +32,11 @@ export function CsgoEdit() {
   };
 
   const gtipshome = {
-    marginLeft: "2.5rem",
+    marginLeft: "40px",
     color: "#A9A9A9",
     fontSize: "3rem",
+    textDecoration: "none",
+    fontWeight: "800",
   };
 
   const nlstyle = {
@@ -44,9 +45,10 @@ export function CsgoEdit() {
   };
 
   const aboutusnav = {
-    marginRight: "2.5rem",
+    marginRight: "40px",
     color: "#A9A9A9",
     textDecoration: "none",
+    fontWeight: "800",
   };
 
   const bNavbarStyle = {
@@ -55,6 +57,7 @@ export function CsgoEdit() {
     color: "white",
     borderRadius: "10px",
     padding: "0.3rem",
+    fontWeight: "600",
   };
 
   const gamesDiv = {
@@ -64,7 +67,6 @@ export function CsgoEdit() {
     width: "60rem",
     marginBottom: "1.5rem",
   };
-
   //termina aqui
 
   const divBackgorund = {
@@ -173,8 +175,12 @@ export function CsgoEdit() {
     <div style={divBackgorund}>
       <Navbar style={nbstyle}>
         <Container className="div-geral-navbar" style={divGeralNavbar}>
-          <div style={gtipshome}>
-            <Navbar href="#home">GTIPS</Navbar>
+          <div>
+            <Link to={"/"} style={{ textDecoration: "none" }}>
+              <Navbar style={gtipshome} href="#home">
+                GTIPS
+              </Navbar>
+            </Link>
           </div>
           <div style={gamesDiv}>
             <Nav.Link style={nlstyle} href="../csgo">
