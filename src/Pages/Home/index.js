@@ -18,7 +18,6 @@ export function Home(props) {
     border: "0",
     borderRadius: "0",
     color: "white",
-    fontWeight: "600",
   };
 
   const divGeralNavbar = {
@@ -34,6 +33,8 @@ export function Home(props) {
     marginLeft: "40px",
     color: "#A9A9A9",
     fontSize: "3rem",
+    textDecoration: "none",
+    fontWeight: "800",
   };
 
   const nlstyle = {
@@ -45,6 +46,7 @@ export function Home(props) {
     marginRight: "40px",
     color: "#A9A9A9",
     textDecoration: "none",
+    fontWeight: "800",
   };
 
   const bNavbarStyle = {
@@ -53,6 +55,7 @@ export function Home(props) {
     color: "white",
     borderRadius: "10px",
     padding: "0.3rem",
+    fontWeight: "600",
   };
 
   const gamesDiv = {
@@ -105,7 +108,7 @@ export function Home(props) {
     textAlign: "center",
     color: "white",
     marginBottom: "4.5rem",
-    fontWeight: "500",
+    fontWeight: "550",
   };
 
   const body2boxes = {
@@ -152,8 +155,12 @@ export function Home(props) {
     <>
       <Navbar style={nbstyle}>
         <Container className="div-geral-navbar" style={divGeralNavbar}>
-          <div style={gtipshome}>
-            <Navbar href="#home">GTIPS</Navbar>
+          <div>
+            <Link to={"/"} style={{ textDecoration: "none" }}>
+              <Navbar style={gtipshome} href="#home">
+                GTIPS
+              </Navbar>
+            </Link>
           </div>
           <div style={gamesDiv}>
             <Nav.Link style={nlstyle} href="../csgo">
