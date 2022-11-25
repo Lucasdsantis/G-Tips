@@ -9,6 +9,8 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 
+//!
+
 export function CsgoEdit() {
   //estilo da navbar começa aqui
   const nbstyle = {
