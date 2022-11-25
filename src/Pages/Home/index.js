@@ -5,7 +5,7 @@ import Carousel from "react-bootstrap/Carousel";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
-import { hover } from "@testing-library/user-event/dist/hover";
+// import { hover } from "@testing-library/user-event/dist/hover";
 
 export function Home(props) {
   const { imgCsGoHP, imgLolHP, imgFifaHP } = props;
@@ -23,7 +23,7 @@ export function Home(props) {
   };
 
   const divGeralNavbar = {
-    margin: "0",
+    marginBottom: "10rem",
     maxWidth: "100vw",
     display: "flex",
     flexDirection: "row",
@@ -33,25 +33,27 @@ export function Home(props) {
 
   const gtipshome = {
     marginLeft: "40px",
-    color: "white",
+    color: "#A9A9A9",
     fontSize: "3rem",
   };
 
   const nlstyle = {
-    marginRight: "80px",
-    marginLeft: "80px",
     background: "none",
     borderRadius: "20px",
   };
 
   const aboutusnav = {
     marginRight: "40px",
+    color: "#A9A9A9",
+    textDecoration: "none",
   };
 
   const bNavbarStyle = {
-    background: "none",
+    background: "transparent",
     border: "0",
     color: "white",
+    borderRadius: "10px",
+    padding: "0.3rem",
   };
 
   const imgcarousel = {
@@ -68,6 +70,9 @@ export function Home(props) {
   const gamesDiv = {
     display: "flex",
     flexDirection: "row",
+    justifyContent: "space-around",
+    width: "60rem",
+    marginBottom: "1.5rem",
   };
 
   const body2 = {
@@ -99,7 +104,7 @@ export function Home(props) {
     marginRight: "20px",
     textAlign: "center",
     color: "white",
-
+    marginBottom: "4.5rem",
     fontWeight: "500",
   };
 
@@ -121,12 +126,13 @@ export function Home(props) {
 
   const abtfooter = {
     textAlign: "center",
-    marginBottom: "20px",
     color: "white",
+    padding: "10px",
   };
   const pfooter = {
     fontSize: "0.7rem",
     color: "white",
+    padding: "0.4rem",
   };
 
   const [index, setIndex] = useState(0);
@@ -135,10 +141,12 @@ export function Home(props) {
     setIndex(selectedIndex);
   };
 
-  // const transparent = { background: "none" };
-  // const grey = { backGround: "grey" };
-
-  // const [color, setColor] = useState(transparent);
+  function MouseOver(event) {
+    event.target.style.background = "#808080";
+  }
+  function MouseOut(event) {
+    event.target.style.background = "transparent";
+  }
 
   return (
     <>
@@ -153,19 +161,37 @@ export function Home(props) {
           {/* <Nav className="me-auto"> */}
           <div style={gamesDiv}>
             <Nav.Link style={nlstyle} href="../csgo">
-              <button style={bNavbarStyle}>
+              <button
+                style={bNavbarStyle}
+                onMouseOver={MouseOver}
+                onMouseOut={MouseOut}
+              >
                 Counter Strike Global Offensive
               </button>
             </Nav.Link>
             <Nav.Link style={nlstyle} href="../lol">
-              <button style={bNavbarStyle}>League of Legends</button>
+              <button
+                style={bNavbarStyle}
+                onMouseOver={MouseOver}
+                onMouseOut={MouseOut}
+              >
+                League of Legends
+              </button>
             </Nav.Link>
             <Nav.Link style={nlstyle} href="../fifa">
-              <button style={bNavbarStyle}>FIFA</button>
+              <button
+                style={bNavbarStyle}
+                onMouseOver={MouseOver}
+                onMouseOut={MouseOut}
+              >
+                FIFA
+              </button>
             </Nav.Link>
           </div>
-          <div style={aboutusnav}>
-            <a href="#abtus">About Us</a>
+          <div>
+            <a style={aboutusnav} href="#abtus">
+              About Us
+            </a>
           </div>
           {/* </Nav> */}
           {/* </Navbar.Collapse> */}
