@@ -75,16 +75,18 @@ export function CsgoEdit() {
     backgroundSize: "cover",
     display: "flex",
     justifyContent: "center",
+    flexDirection: "column",
+    alignItems: "center",
   };
 
   const divStyle = {
-    margin: "50px",
+    margin: "10px",
     backgroundColor: "#808080",
     padding: "1rem",
     border: "solid 1px black",
     borderRadius: "10px",
     width: "35%",
-    height: "91%",
+    height: "90%",
     overflow: "scroll",
     overflowX: "hidden",
     overflowY: "auto",
@@ -324,6 +326,11 @@ export function CsgoEdit() {
             </button>
           </div>
         </form>
+      </div>
+      <div>
+        <Link to={`/csgo-ReadD/${params.id}`} className={"btn btn-light"}>
+          Back
+        </Link>
       </div>
     </div>
   );

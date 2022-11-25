@@ -84,7 +84,7 @@ export function FifaPage() {
     backgroundSize: "cover",
     display: "flex",
     flexDirection: "column",
-    justifyContent: "center",
+    justifyContent: "space-around",
     alignItems: "center",
   };
 
@@ -271,6 +271,11 @@ export function FifaPage() {
             );
           })}
         </div>
+      </div>
+      <div>
+        <Link to={`/`} className={"btn btn-light"}>
+          Back
+        </Link>
       </div>
     </div>
   );

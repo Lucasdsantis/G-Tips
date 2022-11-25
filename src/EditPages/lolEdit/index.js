@@ -75,16 +75,18 @@ export function LolEdit() {
     backgroundSize: "cover",
     display: "flex",
     justifyContent: "center",
+    flexDirection: "column",
+    alignItems: "center",
   };
 
   const divStyle = {
-    margin: "50px",
+    margin: "10px",
     backgroundColor: "#808080",
     padding: "1rem",
     border: "solid 1px black",
     borderRadius: "10px",
     Width: "100%",
-    height: "91%",
+    height: "90%",
     overflow: "scroll",
     overflowX: "hidden",
     overflowY: "auto",
@@ -312,11 +314,16 @@ export function LolEdit() {
             ></textarea>
           </div>
 
-          <button type="submit" className="btn btn-primary">
-            Create
-          </button>
+          <div style={{ display: "flex", justifyContent: "end" }}>
+            <button type="submit" className="btn btn-primary">
+              Edit
+            </button>
+          </div>
         </form>
       </div>
+      <Link to={`/lol-ReadD/${params.id}`} className={"btn btn-light"}>
+        Back
+      </Link>
     </div>
   );
 }

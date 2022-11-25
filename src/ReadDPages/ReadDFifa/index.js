@@ -83,7 +83,7 @@ export function ReadDFifa() {
     backgroundSize: "cover",
     display: "flex",
     flexDirection: "column",
-    justifyContent: "center",
+    justifyContent: "space-around",
     alignItems: "center",
   };
 
@@ -95,6 +95,7 @@ export function ReadDFifa() {
     gap: "2rem",
     height: "100%",
     width: "100%",
+    marginBottom: "1rem",
   };
 
   const divTip = {
@@ -604,6 +605,11 @@ export function ReadDFifa() {
             }
           })}
         </div>
+      </div>
+      <div>
+        <Link to={`/fifa`} className={"btn btn-light"}>
+          Back
+        </Link>
       </div>
     </div>
   );

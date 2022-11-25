@@ -80,7 +80,7 @@ export function ReadDLol() {
     backgroundSize: "cover",
     display: "flex",
     flexDirection: "column",
-    justifyContent: "center",
+    justifyContent: "space-around",
     alignItems: "center",
   };
 
@@ -92,6 +92,7 @@ export function ReadDLol() {
     gap: "2rem",
     height: "100%",
     width: "100%",
+    marginBottom: "1rem",
   };
 
   const divTip = {
@@ -595,6 +596,11 @@ export function ReadDLol() {
             }
           })}
         </div>
+      </div>
+      <div>
+        <Link to={`/lol`} className={"btn btn-light"}>
+          Back
+        </Link>
       </div>
     </div>
   );
