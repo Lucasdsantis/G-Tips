@@ -559,7 +559,7 @@ export function ReadDLol() {
             let randomIndex = Math.floor(Math.random() * 4);
 
             if (tip._id === currentTip._id) return;
-            if (currentTip.ChampionName === tip.ChampionName) {
+            if (currentTip.position === tip.position) {
               return (
                 <div
                   className={"card"}

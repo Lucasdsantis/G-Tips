@@ -250,8 +250,6 @@ export function FormLol() {
               <option value="Matchs">Match</option>
               <option value="Lane-Fase">Lane Fase</option>
               <option value="GamePlay">GamePlay</option>
-              <option value="GamePlay">GamePlay</option>
-              <option value="GamePlay">GamePlay</option>
               <option value="Runas/Spel">Runas/Spell</option>
             </select>
           </div>
