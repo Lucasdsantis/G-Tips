@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import fifabackground from "../../Assets/Backgroung-img/backgroundfifa.jpeg";
 
@@ -75,16 +75,18 @@ export function FormFifa() {
     // backgroundRepeat: "no-repeat",
     display: "flex",
     justifyContent: "center",
+    flexDirection: "column",
+    alignItems: "center",
   };
 
   const divStyle = {
-    margin: "50px",
+    margin: "10px",
     backgroundColor: "#808080",
     padding: "1.5rem",
     border: "solid 1px black",
     borderRadius: "10px",
     Width: "100%",
-    height: "90%",
+    height: "82%",
     overflow: "scroll",
     overflowX: "hidden",
     overflowY: "auto",
@@ -271,6 +273,11 @@ export function FormFifa() {
             Create
           </button>
         </form>
+      </div>
+      <div>
+        <Link to={`/fifa`} className={"btn btn-light"}>
+          Back
+        </Link>
       </div>
     </div>
   );

@@ -98,6 +98,7 @@ export function ReadDCsgo() {
     gap: "2rem",
     height: "100%",
     width: "100%",
+    marginBottom: "1rem",
   };
 
   const divTip = {
@@ -601,6 +602,11 @@ export function ReadDCsgo() {
             }
           })}
         </div>
+      </div>
+      <div>
+        <Link to={`/csgo`} className={"btn btn-light"}>
+          Back
+        </Link>
       </div>
     </div>
   );

@@ -85,7 +85,7 @@ export function CsGoPage() {
     backgroundSize: "cover",
     display: "flex",
     flexDirection: "column",
-    justifyContent: "center",
+    justifyContent: "space-around",
     alignItems: "center",
   };
 
@@ -272,6 +272,11 @@ export function CsGoPage() {
             );
           })}
         </div>
+      </div>
+      <div>
+        <Link to={`/`} className={"btn btn-light"}>
+          Back
+        </Link>
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import imgLOL5 from "../../Assets/img-lol/imgLOL5.jpeg";
 
@@ -75,16 +75,18 @@ export function FormLol() {
     backgroundSize: "cover",
     display: "flex",
     justifyContent: "center",
+    flexDirection: "column",
+    alignItems: "center",
   };
 
   const divStyle = {
-    margin: "50px",
+    margin: "10px",
     backgroundColor: "#808080",
     padding: "1.5rem",
     border: "solid 1px black",
     borderRadius: "10px",
     Width: "100%",
-    height: "90%",
+    height: "55rem",
     overflow: "scroll",
     overflowX: "hidden",
     overflowY: "auto",
@@ -294,6 +296,11 @@ export function FormLol() {
             Create
           </button>
         </form>
+      </div>
+      <div>
+        <Link to={`/lol`} className={"btn btn-light"}>
+          Back
+        </Link>
       </div>
     </div>
   );

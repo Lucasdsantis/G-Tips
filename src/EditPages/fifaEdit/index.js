@@ -75,6 +75,8 @@ export function FifaEdit() {
     backgroundSize: "cover",
     display: "flex",
     justifyContent: "center",
+    flexDirection: "column",
+    alignItems: "center",
   };
 
   const divStyle = {
@@ -289,10 +291,17 @@ export function FifaEdit() {
             ></textarea>
           </div>
 
-          <button type="submit" className="btn btn-primary">
-            Edit
-          </button>
+          <div style={{ display: "flex", justifyContent: "end" }}>
+            <button type="submit" className="btn btn-primary">
+              Edit
+            </button>
+          </div>
         </form>
+      </div>
+      <div>
+        <Link to={`/fifa-ReadD/${params.id}`} className={"btn btn-light"}>
+          Back
+        </Link>
       </div>
     </div>
   );
