@@ -1,6 +1,6 @@
 # GTIPS
 
-Link Apresentação: 
+Apresentation: 
 https://1drv.ms/p/s!AroAHxfGFQRCrgVLSc-BvzY0BXXc?e=GTvS3k
 
 Web Aplication: 
