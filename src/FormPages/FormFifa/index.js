@@ -20,6 +20,8 @@ export function FormFifa() {
     border: "0",
     borderRadius: "0",
     color: "white",
+    height: "100px",
+    marginTop: "5rem",
   };
 
   const divGeralNavbar = {

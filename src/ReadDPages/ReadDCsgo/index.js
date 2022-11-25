@@ -31,6 +31,8 @@ export function ReadDCsgo() {
     border: "0",
     borderRadius: "0",
     color: "white",
+    height: "60px",
+    marginTop: "5rem",
   };
 
   const divGeralNavbar = {
