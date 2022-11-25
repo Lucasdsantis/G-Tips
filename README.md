@@ -1,4 +1,4 @@
-# GTIPS fórum
+# GTIPS
 
 
 
