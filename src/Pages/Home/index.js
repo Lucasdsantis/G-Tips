@@ -5,11 +5,10 @@ import Carousel from "react-bootstrap/Carousel";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
-// import { hover } from "@testing-library/user-event/dist/hover";
 
 export function Home(props) {
   const { imgCsGoHP, imgLolHP, imgFifaHP } = props;
-
+  //estilo da navbar começa aqui
   const nbstyle = {
     position: "absolute",
     background: "none",
@@ -56,6 +55,15 @@ export function Home(props) {
     padding: "0.3rem",
   };
 
+  const gamesDiv = {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-around",
+    width: "60rem",
+    marginBottom: "1.5rem",
+  };
+  //termina aqui
+
   const imgcarousel = {
     objectFit: "cover",
     width: "100vw",
@@ -65,14 +73,6 @@ export function Home(props) {
     width: "100vw",
     heigth: "10em",
     top: "0",
-  };
-
-  const gamesDiv = {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-around",
-    width: "60rem",
-    marginBottom: "1.5rem",
   };
 
   const body2 = {
@@ -155,10 +155,6 @@ export function Home(props) {
           <div style={gtipshome}>
             <Navbar href="#home">GTIPS</Navbar>
           </div>
-          {/* <Navbar.Toggle aria-controls="basic-navbar-nav" /> */}
-          {/* <Navbar.Collapse id="basic-navbar-nav"> */}
-          {/* onMouseEnter={() => setColor(grey)} */}
-          {/* <Nav className="me-auto"> */}
           <div style={gamesDiv}>
             <Nav.Link style={nlstyle} href="../csgo">
               <button
