@@ -5,7 +5,68 @@ import toast from "react-hot-toast";
 
 import imgLOL5 from "../../Assets/img-lol/imgLOL5.jpeg";
 
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
+import Container from "react-bootstrap/Container";
+
 export function LolEdit() {
+  //navbar começa qui
+  const nbstyle = {
+    position: "absolute",
+    background: "none",
+    top: "0px",
+    width: "100%",
+    zIndex: "999",
+    border: "0",
+    borderRadius: "0",
+    color: "white",
+    fontWeight: "600",
+  };
+
+  const divGeralNavbar = {
+    marginBottom: "10rem",
+    maxWidth: "100vw",
+    display: "flex",
+    flexDirection: "row",
+    justifycontent: "space-between",
+    fontSize: "1.4rem",
+  };
+
+  const gtipshome = {
+    marginLeft: "2.5rem",
+    color: "#A9A9A9",
+    fontSize: "3rem",
+  };
+
+  const nlstyle = {
+    background: "none",
+    borderRadius: "20px",
+  };
+
+  const aboutusnav = {
+    marginRight: "2.5rem",
+    color: "#A9A9A9",
+    textDecoration: "none",
+  };
+
+  const bNavbarStyle = {
+    background: "transparent",
+    border: "0",
+    color: "white",
+    borderRadius: "10px",
+    padding: "0.3rem",
+  };
+
+  const gamesDiv = {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-around",
+    width: "60rem",
+    marginBottom: "1.5rem",
+  };
+
+  //termina aqui
+
   const divBackgorund = {
     backgroundImage: `url(${imgLOL5})`,
     height: "100vh",
@@ -23,7 +84,7 @@ export function LolEdit() {
     border: "solid 1px black",
     borderRadius: "10px",
     Width: "100%",
-    height: "85%",
+    height: "91%",
     overflow: "scroll",
     overflowX: "hidden",
     overflowY: "auto",
@@ -91,8 +152,59 @@ export function LolEdit() {
     }
   }
 
+  //lógica navbar
+  function MouseOver(event) {
+    event.target.style.background = "#808080";
+  }
+  function MouseOut(event) {
+    event.target.style.background = "transparent";
+  }
+
   return (
     <div style={divBackgorund}>
+      <Navbar style={nbstyle}>
+        <Container className="div-geral-navbar" style={divGeralNavbar}>
+          <div style={gtipshome}>
+            <Navbar href="#home">GTIPS</Navbar>
+          </div>
+          <div style={gamesDiv}>
+            <Nav.Link style={nlstyle} href="../csgo">
+              <button
+                style={bNavbarStyle}
+                onMouseOver={MouseOver}
+                onMouseOut={MouseOut}
+              >
+                Counter Strike Global Offensive
+              </button>
+            </Nav.Link>
+            <Nav.Link style={nlstyle} href="../lol">
+              <button
+                style={bNavbarStyle}
+                onMouseOver={MouseOver}
+                onMouseOut={MouseOut}
+              >
+                League of Legends
+              </button>
+            </Nav.Link>
+            <Nav.Link style={nlstyle} href="../fifa">
+              <button
+                style={bNavbarStyle}
+                onMouseOver={MouseOver}
+                onMouseOut={MouseOut}
+              >
+                FIFA
+              </button>
+            </Nav.Link>
+          </div>
+          <div>
+            <a style={aboutusnav} href="#abtus">
+              About Us
+            </a>
+          </div>
+          {/* </Nav> */}
+          {/* </Navbar.Collapse> */}
+        </Container>
+      </Navbar>
       <div style={divStyle}>
         <h1 style={h1Style}> Create League of Legends Tip</h1>
         <form onSubmit={handleSubmit}>
