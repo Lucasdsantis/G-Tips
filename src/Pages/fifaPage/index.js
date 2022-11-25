@@ -124,6 +124,11 @@ export function FifaPage() {
     alignItems: "center",
   };
 
+  const divLikesAndDislikes = {
+    display: "flex",
+    gap: "1rem",
+  };
+
   const allImgs = [
     Ffiaimg1,
     Ffiaimg2,
@@ -264,6 +269,23 @@ export function FifaPage() {
                   <h5 className={"card-title"}>{currentTip.tipTitle}</h5>
                   <h6 className={"card-title"}>Mode: {currentTip.mode}</h6>
                   <h6 className={"card-title"}>Type: {currentTip.type}</h6>
+                  <div style={divLikesAndDislikes}>
+                    {currentTip.like ? (
+                      <h6 style={{ color: "green" }} className={"card-title"}>
+                        Likes: {currentTip.like}
+                      </h6>
+                    ) : (
+                      <h6 className={"card-title"}>No Likes</h6>
+                    )}
+                    <h6 className={"card-title"}> | </h6>
+                    {currentTip.disLike ? (
+                      <h6 style={{ color: "red" }} className={"card-title"}>
+                        Dislikes: {currentTip.disLike}
+                      </h6>
+                    ) : (
+                      <h6 className={"card-title"}>No Dislikes</h6>
+                    )}
+                  </div>
                   <div>
                     <Link
                       to={`/fifa-ReadD/${currentTip._id}`}
