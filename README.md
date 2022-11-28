@@ -2,7 +2,7 @@
 
 This project is an online gaming forum. Where users can create various tips for certain games and share with other users.
 
-It is also possible to comment on other users' tips and like or discuss a tip if you think it is good or bad.
+It is also possible to comment on other users' tips and like or dislike a tip if you think it is good or bad.
 
 # Images
 
@@ -73,5 +73,10 @@ Web Aplication:
 
 https://gtips.netlify.app/
 
+Team:
+Lucas de santis
+https://github.com/Lucasdsantis
 
+Joey Quadros
+https://github.com/JoeyQPB
 
