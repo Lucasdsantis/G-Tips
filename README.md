@@ -73,10 +73,7 @@ Web Aplication:
 
 https://gtips.netlify.app/
 
-Team:
-Lucas de santis
-https://github.com/Lucasdsantis
+# team
+Lucas de santis  [https://github.com/Lucasdsantis](https://github.com/Lucasdsantis)
 
-Joey Quadros
-https://github.com/JoeyQPB
-
+Joey Quadros  [https://github.com/JoeyQPB](https://github.com/JoeyQPB)
