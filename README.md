@@ -1,4 +1,4 @@
-# GTIPS
+# GTIPS (https://gtips.netlify.app/)
 
 This project is an online gaming forum. Where users can create various tips for certain games and share with other users.
 
